@@ -2,246 +2,894 @@
 import { css, jsx } from "@emotion/core";
 import "./App.css";
 import ReactEcharts from "echarts-for-react";
-function App() {
-  
-  // Schema:
-// date,AQIindex,PM2.5,PM10,CO,NO2,SO2
-var dataBJ = [
-  [55,9,56,0.46,18,6,1],
-  [25,11,21,0.65,34,9,2],
-  [56,7,63,0.3,14,5,3],
-  [33,7,29,0.33,16,6,4],
-  [42,24,44,0.76,40,16,5],
-  [82,58,90,1.77,68,33,6],
-  [74,49,77,1.46,48,27,7],
-  [78,55,80,1.29,59,29,8],
-  [267,216,280,4.8,108,64,9],
-  [185,127,216,2.52,61,27,10],
-  [39,19,38,0.57,31,15,11],
-  [41,11,40,0.43,21,7,12],
-  [64,38,74,1.04,46,22,13],
-  [108,79,120,1.7,75,41,14],
-  [108,63,116,1.48,44,26,15],
-  [33,6,29,0.34,13,5,16],
-  [94,66,110,1.54,62,31,17],
-  [186,142,192,3.88,93,79,18],
-  [57,31,54,0.96,32,14,19],
-  [22,8,17,0.48,23,10,20],
-  [39,15,36,0.61,29,13,21],
-  [94,69,114,2.08,73,39,22],
-  [99,73,110,2.43,76,48,23],
-  [31,12,30,0.5,32,16,24],
-  [42,27,43,1,53,22,25],
-  [154,117,157,3.05,92,58,26],
-  [234,185,230,4.09,123,69,27],
-  [160,120,186,2.77,91,50,28],
-  [134,96,165,2.76,83,41,29],
-  [52,24,60,1.03,50,21,30],
-  [46,5,49,0.28,10,6,31]
+import Navbar from "./components/Navbar";
+import { Container } from "./components/Layout";
+
+var data = [
+  {
+    name: "Flora",
+    itemStyle: {
+      color: "#da0d68"
+    },
+    children: [
+      {
+        name: "Black Tea",
+        value: 1,
+        itemStyle: {
+          color: "#975e6d"
+        }
+      },
+      {
+        name: "Floral",
+        itemStyle: {
+          color: "#e0719c"
+        },
+        children: [
+          {
+            name: "Chamomile",
+            value: 1,
+            itemStyle: {
+              color: "#f99e1c"
+            }
+          },
+          {
+            name: "Rose",
+            value: 1,
+            itemStyle: {
+              color: "#ef5a78"
+            }
+          },
+          {
+            name: "Jasmine",
+            value: 1,
+            itemStyle: {
+              color: "#f7f1bd"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Fruity",
+    itemStyle: {
+      color: "#da1d23"
+    },
+    children: [
+      {
+        name: "Berry",
+        itemStyle: {
+          color: "#dd4c51"
+        },
+        children: [
+          {
+            name: "Blackberry",
+            value: 1,
+            itemStyle: {
+              color: "#3e0317"
+            }
+          },
+          {
+            name: "Raspberry",
+            value: 1,
+            itemStyle: {
+              color: "#e62969"
+            }
+          },
+          {
+            name: "Blueberry",
+            value: 1,
+            itemStyle: {
+              color: "#6569b0"
+            }
+          },
+          {
+            name: "Strawberry",
+            value: 1,
+            itemStyle: {
+              color: "#ef2d36"
+            }
+          }
+        ]
+      },
+      {
+        name: "Dried Fruit",
+        itemStyle: {
+          color: "#c94a44"
+        },
+        children: [
+          {
+            name: "Raisin",
+            value: 1,
+            itemStyle: {
+              color: "#b53b54"
+            }
+          },
+          {
+            name: "Prune",
+            value: 1,
+            itemStyle: {
+              color: "#a5446f"
+            }
+          }
+        ]
+      },
+      {
+        name: "Other Fruit",
+        itemStyle: {
+          color: "#dd4c51"
+        },
+        children: [
+          {
+            name: "Coconut",
+            value: 1,
+            itemStyle: {
+              color: "#f2684b"
+            }
+          },
+          {
+            name: "Cherry",
+            value: 1,
+            itemStyle: {
+              color: "#e73451"
+            }
+          },
+          {
+            name: "Pomegranate",
+            value: 1,
+            itemStyle: {
+              color: "#e65656"
+            }
+          },
+          {
+            name: "Pineapple",
+            value: 1,
+            itemStyle: {
+              color: "#f89a1c"
+            }
+          },
+          {
+            name: "Grape",
+            value: 1,
+            itemStyle: {
+              color: "#aeb92c"
+            }
+          },
+          {
+            name: "Apple",
+            value: 1,
+            itemStyle: {
+              color: "#4eb849"
+            }
+          },
+          {
+            name: "Peach",
+            value: 1,
+            itemStyle: {
+              color: "#f68a5c"
+            }
+          },
+          {
+            name: "Pear",
+            value: 1,
+            itemStyle: {
+              color: "#baa635"
+            }
+          }
+        ]
+      },
+      {
+        name: "Citrus Fruit",
+        itemStyle: {
+          color: "#f7a128"
+        },
+        children: [
+          {
+            name: "Grapefruit",
+            value: 1,
+            itemStyle: {
+              color: "#f26355"
+            }
+          },
+          {
+            name: "Orange",
+            value: 1,
+            itemStyle: {
+              color: "#e2631e"
+            }
+          },
+          {
+            name: "Lemon",
+            value: 1,
+            itemStyle: {
+              color: "#fde404"
+            }
+          },
+          {
+            name: "Lime",
+            value: 1,
+            itemStyle: {
+              color: "#7eb138"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Sour/\nFermented",
+    itemStyle: {
+      color: "#ebb40f"
+    },
+    children: [
+      {
+        name: "Sour",
+        itemStyle: {
+          color: "#e1c315"
+        },
+        children: [
+          {
+            name: "Sour Aromatics",
+            value: 1,
+            itemStyle: {
+              color: "#9ea718"
+            }
+          },
+          {
+            name: "Acetic Acid",
+            value: 1,
+            itemStyle: {
+              color: "#94a76f"
+            }
+          },
+          {
+            name: "Butyric Acid",
+            value: 1,
+            itemStyle: {
+              color: "#d0b24f"
+            }
+          },
+          {
+            name: "Isovaleric Acid",
+            value: 1,
+            itemStyle: {
+              color: "#8eb646"
+            }
+          },
+          {
+            name: "Citric Acid",
+            value: 1,
+            itemStyle: {
+              color: "#faef07"
+            }
+          },
+          {
+            name: "Malic Acid",
+            value: 1,
+            itemStyle: {
+              color: "#c1ba07"
+            }
+          }
+        ]
+      },
+      {
+        name: "Alcohol/\nFremented",
+        itemStyle: {
+          color: "#b09733"
+        },
+        children: [
+          {
+            name: "Winey",
+            value: 1,
+            itemStyle: {
+              color: "#8f1c53"
+            }
+          },
+          {
+            name: "Whiskey",
+            value: 1,
+            itemStyle: {
+              color: "#b34039"
+            }
+          },
+          {
+            name: "Fremented",
+            value: 1,
+            itemStyle: {
+              color: "#ba9232"
+            }
+          },
+          {
+            name: "Overripe",
+            value: 1,
+            itemStyle: {
+              color: "#8b6439"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Green/\nVegetative",
+    itemStyle: {
+      color: "#187a2f"
+    },
+    children: [
+      {
+        name: "Olive Oil",
+        value: 1,
+        itemStyle: {
+          color: "#a2b029"
+        }
+      },
+      {
+        name: "Raw",
+        value: 1,
+        itemStyle: {
+          color: "#718933"
+        }
+      },
+      {
+        name: "Green/\nVegetative",
+        itemStyle: {
+          color: "#3aa255"
+        },
+        children: [
+          {
+            name: "Under-ripe",
+            value: 1,
+            itemStyle: {
+              color: "#a2bb2b"
+            }
+          },
+          {
+            name: "Peapod",
+            value: 1,
+            itemStyle: {
+              color: "#62aa3c"
+            }
+          },
+          {
+            name: "Fresh",
+            value: 1,
+            itemStyle: {
+              color: "#03a653"
+            }
+          },
+          {
+            name: "Dark Green",
+            value: 1,
+            itemStyle: {
+              color: "#038549"
+            }
+          },
+          {
+            name: "Vegetative",
+            value: 1,
+            itemStyle: {
+              color: "#28b44b"
+            }
+          },
+          {
+            name: "Hay-like",
+            value: 1,
+            itemStyle: {
+              color: "#a3a830"
+            }
+          },
+          {
+            name: "Herb-like",
+            value: 1,
+            itemStyle: {
+              color: "#7ac141"
+            }
+          }
+        ]
+      },
+      {
+        name: "Beany",
+        value: 1,
+        itemStyle: {
+          color: "#5e9a80"
+        }
+      }
+    ]
+  },
+  {
+    name: "Other",
+    itemStyle: {
+      color: "#0aa3b5"
+    },
+    children: [
+      {
+        name: "Papery/Musty",
+        itemStyle: {
+          color: "#9db2b7"
+        },
+        children: [
+          {
+            name: "Stale",
+            value: 1,
+            itemStyle: {
+              color: "#8b8c90"
+            }
+          },
+          {
+            name: "Cardboard",
+            value: 1,
+            itemStyle: {
+              color: "#beb276"
+            }
+          },
+          {
+            name: "Papery",
+            value: 1,
+            itemStyle: {
+              color: "#fefef4"
+            }
+          },
+          {
+            name: "Woody",
+            value: 1,
+            itemStyle: {
+              color: "#744e03"
+            }
+          },
+          {
+            name: "Moldy/Damp",
+            value: 1,
+            itemStyle: {
+              color: "#a3a36f"
+            }
+          },
+          {
+            name: "Musty/Dusty",
+            value: 1,
+            itemStyle: {
+              color: "#c9b583"
+            }
+          },
+          {
+            name: "Musty/Earthy",
+            value: 1,
+            itemStyle: {
+              color: "#978847"
+            }
+          },
+          {
+            name: "Animalic",
+            value: 1,
+            itemStyle: {
+              color: "#9d977f"
+            }
+          },
+          {
+            name: "Meaty Brothy",
+            value: 1,
+            itemStyle: {
+              color: "#cc7b6a"
+            }
+          },
+          {
+            name: "Phenolic",
+            value: 1,
+            itemStyle: {
+              color: "#db646a"
+            }
+          }
+        ]
+      },
+      {
+        name: "Chemical",
+        itemStyle: {
+          color: "#76c0cb"
+        },
+        children: [
+          {
+            name: "Bitter",
+            value: 1,
+            itemStyle: {
+              color: "#80a89d"
+            }
+          },
+          {
+            name: "Salty",
+            value: 1,
+            itemStyle: {
+              color: "#def2fd"
+            }
+          },
+          {
+            name: "Medicinal",
+            value: 1,
+            itemStyle: {
+              color: "#7a9bae"
+            }
+          },
+          {
+            name: "Petroleum",
+            value: 1,
+            itemStyle: {
+              color: "#039fb8"
+            }
+          },
+          {
+            name: "Skunky",
+            value: 1,
+            itemStyle: {
+              color: "#5e777b"
+            }
+          },
+          {
+            name: "Rubber",
+            value: 1,
+            itemStyle: {
+              color: "#120c0c"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Roasted",
+    itemStyle: {
+      color: "#c94930"
+    },
+    children: [
+      {
+        name: "Pipe Tobacco",
+        value: 1,
+        itemStyle: {
+          color: "#caa465"
+        }
+      },
+      {
+        name: "Tobacco",
+        value: 1,
+        itemStyle: {
+          color: "#dfbd7e"
+        }
+      },
+      {
+        name: "Burnt",
+        itemStyle: {
+          color: "#be8663"
+        },
+        children: [
+          {
+            name: "Acrid",
+            value: 1,
+            itemStyle: {
+              color: "#b9a449"
+            }
+          },
+          {
+            name: "Ashy",
+            value: 1,
+            itemStyle: {
+              color: "#899893"
+            }
+          },
+          {
+            name: "Smoky",
+            value: 1,
+            itemStyle: {
+              color: "#a1743b"
+            }
+          },
+          {
+            name: "Brown, Roast",
+            value: 1,
+            itemStyle: {
+              color: "#894810"
+            }
+          }
+        ]
+      },
+      {
+        name: "Cereal",
+        itemStyle: {
+          color: "#ddaf61"
+        },
+        children: [
+          {
+            name: "Grain",
+            value: 1,
+            itemStyle: {
+              color: "#b7906f"
+            }
+          },
+          {
+            name: "Malt",
+            value: 1,
+            itemStyle: {
+              color: "#eb9d5f"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Spices",
+    itemStyle: {
+      color: "#ad213e"
+    },
+    children: [
+      {
+        name: "Pungent",
+        value: 1,
+        itemStyle: {
+          color: "#794752"
+        }
+      },
+      {
+        name: "Pepper",
+        value: 1,
+        itemStyle: {
+          color: "#cc3d41"
+        }
+      },
+      {
+        name: "Brown Spice",
+        itemStyle: {
+          color: "#b14d57"
+        },
+        children: [
+          {
+            name: "Anise",
+            value: 1,
+            itemStyle: {
+              color: "#c78936"
+            }
+          },
+          {
+            name: "Nutmeg",
+            value: 1,
+            itemStyle: {
+              color: "#8c292c"
+            }
+          },
+          {
+            name: "Cinnamon",
+            value: 1,
+            itemStyle: {
+              color: "#e5762e"
+            }
+          },
+          {
+            name: "Clove",
+            value: 1,
+            itemStyle: {
+              color: "#a16c5a"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Nutty/\nCocoa",
+    itemStyle: {
+      color: "#a87b64"
+    },
+    children: [
+      {
+        name: "Nutty",
+        itemStyle: {
+          color: "#c78869"
+        },
+        children: [
+          {
+            name: "Peanuts",
+            value: 1,
+            itemStyle: {
+              color: "#d4ad12"
+            }
+          },
+          {
+            name: "Hazelnut",
+            value: 1,
+            itemStyle: {
+              color: "#9d5433"
+            }
+          },
+          {
+            name: "Almond",
+            value: 1,
+            itemStyle: {
+              color: "#c89f83"
+            }
+          }
+        ]
+      },
+      {
+        name: "Cocoa",
+        itemStyle: {
+          color: "#bb764c"
+        },
+        children: [
+          {
+            name: "Chocolate",
+            value: 1,
+            itemStyle: {
+              color: "#692a19"
+            }
+          },
+          {
+            name: "Dark Chocolate",
+            value: 1,
+            itemStyle: {
+              color: "#470604"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: "Sweet",
+    itemStyle: {
+      color: "#e65832"
+    },
+    children: [
+      {
+        name: "Brown Sugar",
+        itemStyle: {
+          color: "#d45a59"
+        },
+        children: [
+          {
+            name: "Molasses",
+            value: 1,
+            itemStyle: {
+              color: "#310d0f"
+            }
+          },
+          {
+            name: "Maple Syrup",
+            value: 1,
+            itemStyle: {
+              color: "#ae341f"
+            }
+          },
+          {
+            name: "Caramelized",
+            value: 1,
+            itemStyle: {
+              color: "#d78823"
+            }
+          },
+          {
+            name: "Honey",
+            value: 1,
+            itemStyle: {
+              color: "#da5c1f"
+            }
+          }
+        ]
+      },
+      {
+        name: "Vanilla",
+        value: 1,
+        itemStyle: {
+          color: "#f89a80"
+        }
+      },
+      {
+        name: "Vanillin",
+        value: 1,
+        itemStyle: {
+          color: "#f37674"
+        }
+      },
+      {
+        name: "Overall Sweet",
+        value: 1,
+        itemStyle: {
+          color: "#e75b68"
+        }
+      },
+      {
+        name: "Sweet Aromatics",
+        value: 1,
+        itemStyle: {
+          color: "#d0545f"
+        }
+      }
+    ]
+  }
 ];
 
-var dataGZ = [
-  [26,37,27,1.163,27,13,1],
-  [85,62,71,1.195,60,8,2],
-  [78,38,74,1.363,37,7,3],
-  [21,21,36,0.634,40,9,4],
-  [41,42,46,0.915,81,13,5],
-  [56,52,69,1.067,92,16,6],
-  [64,30,28,0.924,51,2,7],
-  [55,48,74,1.236,75,26,8],
-  [76,85,113,1.237,114,27,9],
-  [91,81,104,1.041,56,40,10],
-  [84,39,60,0.964,25,11,11],
-  [64,51,101,0.862,58,23,12],
-  [70,69,120,1.198,65,36,13],
-  [77,105,178,2.549,64,16,14],
-  [109,68,87,0.996,74,29,15],
-  [73,68,97,0.905,51,34,16],
-  [54,27,47,0.592,53,12,17],
-  [51,61,97,0.811,65,19,18],
-  [91,71,121,1.374,43,18,19],
-  [73,102,182,2.787,44,19,20],
-  [73,50,76,0.717,31,20,21],
-  [84,94,140,2.238,68,18,22],
-  [93,77,104,1.165,53,7,23],
-  [99,130,227,3.97,55,15,24],
-  [146,84,139,1.094,40,17,25],
-  [113,108,137,1.481,48,15,26],
-  [81,48,62,1.619,26,3,27],
-  [56,48,68,1.336,37,9,28],
-  [82,92,174,3.29,0,13,29],
-  [106,116,188,3.628,101,16,30],
-  [118,50,0,1.383,76,11,31]
-];
-
-var dataSH = [
-  [91,45,125,0.82,34,23,1],
-  [65,27,78,0.86,45,29,2],
-  [83,60,84,1.09,73,27,3],
-  [109,81,121,1.28,68,51,4],
-  [106,77,114,1.07,55,51,5],
-  [109,81,121,1.28,68,51,6],
-  [106,77,114,1.07,55,51,7],
-  [89,65,78,0.86,51,26,8],
-  [53,33,47,0.64,50,17,9],
-  [80,55,80,1.01,75,24,10],
-  [117,81,124,1.03,45,24,11],
-  [99,71,142,1.1,62,42,12],
-  [95,69,130,1.28,74,50,13],
-  [116,87,131,1.47,84,40,14],
-  [108,80,121,1.3,85,37,15],
-  [134,83,167,1.16,57,43,16],
-  [79,43,107,1.05,59,37,17],
-  [71,46,89,0.86,64,25,18],
-  [97,71,113,1.17,88,31,19],
-  [84,57,91,0.85,55,31,20],
-  [87,63,101,0.9,56,41,21],
-  [104,77,119,1.09,73,48,22],
-  [87,62,100,1,72,28,23],
-  [168,128,172,1.49,97,56,24],
-  [65,45,51,0.74,39,17,25],
-  [39,24,38,0.61,47,17,26],
-  [39,24,39,0.59,50,19,27],
-  [93,68,96,1.05,79,29,28],
-  [188,143,197,1.66,99,51,29],
-  [174,131,174,1.55,108,50,30],
-  [187,143,201,1.39,89,53,31]
-];
-
-var lineStyle = {
-  normal: {
-      width: 1,
-      opacity: 0.5
+const option = {
+  title: {
+    text: "WORLD COFFEE RESEARCH SENSORY LEXICON",
+    subtext: "Source: https://worldcoffeeresearch.org/work/sensory-lexicon/",
+    textStyle: {
+      fontSize: 14,
+      align: "center"
+    },
+    subtextStyle: {
+      align: "center"
+    },
+    sublink: "https://worldcoffeeresearch.org/work/sensory-lexicon/"
+  },
+  series: {
+    type: "sunburst",
+    highlightPolicy: "ancestor",
+    data: data,
+    radius: [0, "95%"],
+    sort: null,
+    levels: [
+      {},
+      {
+        r0: "15%",
+        r: "35%",
+        itemStyle: {
+          borderWidth: 2
+        },
+        label: {
+          rotate: "tangential"
+        }
+      },
+      {
+        r0: "35%",
+        r: "70%",
+        label: {
+          align: "right"
+        }
+      },
+      {
+        r0: "70%",
+        r: "72%",
+        label: {
+          position: "outside",
+          padding: 3,
+          silent: false
+        },
+        itemStyle: {
+          borderWidth: 3
+        }
+      }
+    ]
   }
 };
 
-const option = {
-  backgroundColor: '#161627',
-  title: {
-      text: 'AQI - 雷达图',
-      left: 'center',
-      textStyle: {
-          color: '#eee'
-      }
-  },
-  legend: {
-      bottom: 5,
-      data: ['北京', '上海', '广州'],
-      itemGap: 20,
-      textStyle: {
-          color: '#fff',
-          fontSize: 14
-      },
-      selectedMode: 'single'
-  },
-  // visualMap: {
-  //     show: true,
-  //     min: 0,
-  //     max: 20,
-  //     dimension: 6,
-  //     inRange: {
-  //         colorLightness: [0.5, 0.8]
-  //     }
-  // },
-  radar: {
-      indicator: [
-          {name: 'AQI', max: 300},
-          {name: 'PM2.5', max: 250},
-          {name: 'PM10', max: 300},
-          {name: 'CO', max: 5},
-          {name: 'NO2', max: 200},
-          {name: 'SO2', max: 100}
-      ],
-      shape: 'circle',
-      splitNumber: 5,
-      name: {
-          textStyle: {
-              color: 'rgb(238, 197, 102)'
-          }
-      },
-      splitLine: {
-          lineStyle: {
-              color: [
-                  'rgba(238, 197, 102, 0.1)', 'rgba(238, 197, 102, 0.2)',
-                  'rgba(238, 197, 102, 0.4)', 'rgba(238, 197, 102, 0.6)',
-                  'rgba(238, 197, 102, 0.8)', 'rgba(238, 197, 102, 1)'
-              ].reverse()
-          }
-      },
-      splitArea: {
-          show: false
-      },
-      axisLine: {
-          lineStyle: {
-              color: 'rgba(238, 197, 102, 0.5)'
-          }
-      }
-  },
-  series: [
-      {
-          name: '北京',
-          type: 'radar',
-          lineStyle: lineStyle,
-          data: dataBJ,
-          symbol: 'none',
-          itemStyle: {
-              normal: {
-                  color: '#F9713C'
-              }
-          },
-          areaStyle: {
-              normal: {
-                  opacity: 0.1
-              }
-          }
-      },
-      {
-          name: '上海',
-          type: 'radar',
-          lineStyle: lineStyle,
-          data: dataSH,
-          symbol: 'none',
-          itemStyle: {
-              normal: {
-                  color: '#B3E4A1'
-              }
-          },
-          areaStyle: {
-              normal: {
-                  opacity: 0.05
-              }
-          }
-      },
-      {
-          name: '广州',
-          type: 'radar',
-          lineStyle: lineStyle,
-          data: dataGZ,
-          symbol: 'none',
-          itemStyle: {
-              normal: {
-                  color: 'rgb(238, 197, 102)'
-              }
-          },
-          areaStyle: {
-              normal: {
-                  opacity: 0.05
-              }
-          }
-      }
-  ]
-};
-
+function App() {
   return (
     <div
       css={css`
         height: 100vh;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
       `}
     >
-      <ReactEcharts option={option} />
+      <Navbar />
+      <Container row>
+        <div
+          css={css`
+            flex-direction: column;
+            flex-grow: 0.2;
+            background-color: green;
+          `}
+        >
+          filter
+        </div>
+        <div
+          css={css`
+            flex-direction: column;
+            flex-grow: 0.8;
+            height: 90vh;
+            background-color: gray;
+            justify-content: center;
+          `}
+        >
+          <ReactEcharts
+            style={{ height: "70vh", width: "100%" }}
+            option={option}
+          />
+        </div>
+      </Container>
     </div>
   );
 }
