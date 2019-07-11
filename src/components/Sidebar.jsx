@@ -50,7 +50,7 @@ const Panal = () => {
       `}
     >
       <a href="/">
-        <MyButton active={window.location.pathname === "/"}>OVERVIEWS</MyButton>
+        <MyButton active={window.location.pathname === "/"}>OVERVIEW</MyButton>
       </a>
       <a href="/user">
         <MyButton active={window.location.pathname === "/user"}>
