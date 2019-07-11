@@ -214,36 +214,7 @@ const Overview = () => {
       >
         <SimpleLineChart />
       </Card>
-      <Card
-        nonebg
-        title="VISITORS"
-        style={{
-          width: "100%",
-          minHeight: "600px"
-        }}
-      >
-        <SimpleLineChart />
-      </Card>
-      <Card
-        nonebg
-        title="VISITORS"
-        style={{
-          width: "100%",
-          minHeight: "600px"
-        }}
-      >
-        <SimpleLineChart />
-      </Card>
-      <Card
-        nonebg
-        title="VISITORS"
-        style={{
-          width: "100%",
-          minHeight: "600px"
-        }}
-      >
-        <SimpleLineChart />
-      </Card>
+
       <Container margin="0" padding="0">
         <Flex>
           <Card
