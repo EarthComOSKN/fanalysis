@@ -19,6 +19,8 @@ const MyButton = styled.div`
   padding: 1rem 0 1rem 3.5rem;
   font-size: 1rem;
   cursor: pointer;
+  ${props => props.active ? 'background-color: rgba(122, 80, 175, 0.29);' : ''}
+
   &:hover {
     background-color: rgba(122, 80, 175, 0.29);
   }
@@ -47,24 +49,36 @@ const Panal = () => {
         flex-direction: column;
       `}
     >
+      <a href='/'>
+        <MyButton active={window.location.pathname === '/'}>
+          OVERVIEWS
+        </MyButton>
+      </a>
+      <a href='/user'>
+        <MyButton active={window.location.pathname === '/user'}>
+          VISITORS
+        </MyButton>
+      </a>
+      <a href='/'>
+        <MyButton>
+          GENDER
+        </MyButton>
+      </a>
+      <a href='/'>
+        <MyButton>
+          DURATION
+        </MyButton>
+      </a>
+      <a href='/retention'>
+        <MyButton active={window.location.pathname === '/retention'}>
+          RETENTION
+        </MyButton>
+      </a>
+      <a href='/'>
       <MyButton>
-        <a href='/'>OVERVIEWS</a>
+        CUSTOMER JOURNEY
       </MyButton>
-      <MyButton>
-        <a href='/user'>VISITORS</a>
-      </MyButton>
-      <MyButton>
-        <a href='/'>GENDER</a>
-      </MyButton>
-      <MyButton>
-        <a href='/'>DURATION</a>
-      </MyButton>
-      <MyButton>
-        <a href='/retention'>RETENTION</a>
-      </MyButton>
-      <MyButton>
-        <a href='/'>CUSTOMER JOURNEY</a>
-      </MyButton>
+      </a>
     </div>
   );
 };
