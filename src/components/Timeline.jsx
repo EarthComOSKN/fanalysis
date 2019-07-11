@@ -77,7 +77,7 @@ const Text = styled.div`
   color: rgba(255,255,255,0.7);`};
 `;
 
-const Timeline = ({ activeTime, setActiveTime }) => {
+const Timeline = ({ activeTime, setActiveTime, setNum }) => {
   return (
     <Container>
       {TIME.map((time, idx) => (
@@ -85,11 +85,11 @@ const Timeline = ({ activeTime, setActiveTime }) => {
           <Row>
             <Dot
               active={time === activeTime}
-              onClick={() => setActiveTime(time)}
+              onClick={() => setNum((Math.floor(Math.random() * 100) % 3) + 1)}
             />
             <Text
               active={time === activeTime}
-              onClick={() => setActiveTime(time)}
+              onClick={() => setNum((Math.floor(Math.random() * 100) % 3) + 1)}
             >
               {time}
             </Text>

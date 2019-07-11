@@ -274,47 +274,66 @@ const Overview = () => {
           <SankyCard
             title="CUSTOMER JOURNEY"
             data={[
-              { name: "a" },
-              { name: "b" },
-              { name: "a1" },
-              { name: "a2" },
-              { name: "b1" },
-              { name: "c" }
+              { name: "entrance1" },
+              { name: "entrance2" },
+              { name: "men" },
+              { name: "women" },
+              { name: "cashier" },
+              { name: "exit" },
+              { name: "fitting room" }
             ]}
             link={[
               {
-                source: "a",
-                target: "a1",
+                source: "entrance1",
+                target: "women",
                 value: 5,
                 lineStyle: { color: "#e0e0e0" }
               },
               {
-                source: "a",
-                target: "a2",
+                source: "entrance1",
+                target: "men",
                 value: 3,
                 lineStyle: { color: "#e0e0e0" }
               },
               {
-                source: "b",
-                target: "b1",
+                source: "entrance2",
+                target: "women",
                 value: 8,
                 lineStyle: { color: "#e0e0e0" }
               },
               {
-                source: "a",
-                target: "b1",
+                source: "women",
+                target: "cashier",
                 value: 3,
                 lineStyle: { color: "#e0e0e0" }
               },
               {
-                source: "b1",
-                target: "a1",
+                source: "women",
+                target: "fitting room",
+                value: 5,
+                lineStyle: { color: "#e0e0e0" }
+              },
+              {
+                source: "fitting room",
+                target: "cashier",
+                value: 2,
+                lineStyle: { color: "#e0e0e0" }
+              },
+              {
+                source: "men",
+                target: "cashier",
+                value: 3,
+                lineStyle: { color: "#e0e0e0" }
+              },
+              {
+                source: "cashier",
+                target: "exit",
                 value: 1,
                 lineStyle: { color: "#e0e0e0" }
               },
               {
-                source: "b1",
-                target: "c",
+                source: "entrance1",
+                target: "exit",
                 value: 2,
                 lineStyle: { color: "#e0e0e0" }
               }

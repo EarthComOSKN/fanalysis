@@ -4,6 +4,7 @@ import ReactEcharts from "echarts-for-react";
 import echarts from "echarts";
 import { Slider } from "antd";
 import { Container } from "./Layout";
+import { useState } from "react";
 
 echarts.registerTheme("my_theme", {
   color: ["#53D6A9", "#8E4AF5", "#3CC9F5", "#CA47CE", "#D28F84"]
@@ -39,7 +40,7 @@ const marks = {
   100: "20:00"
 };
 
-export const HeatMap = () => {
+export const HeatMap = ({ num }) => {
   var xData = [];
   var yData = [];
   function generateData(theta, min, max) {
@@ -58,58 +59,9 @@ export const HeatMap = () => {
   }
   var data = generateData(2, -5, 5);
 
-  const option = {
-    tooltip: {},
-    xAxis: {
-      type: "category",
-      data: xData
-    },
-    yAxis: {
-      type: "category",
-      data: yData
-    },
-    visualMap: {
-      min: 0,
-      max: 1,
-      calculable: true,
-      realtime: false,
-      inRange: {
-        color: [
-          "#313695",
-          "#4575b4",
-          "#74add1",
-          "#abd9e9",
-          "#e0f3f8",
-          "#ffffbf",
-          "#fee090",
-          "#fdae61",
-          "#f46d43",
-          "#d73027",
-          "#a50026"
-        ]
-      }
-    },
-    series: [
-      {
-        name: "Gaussian",
-        type: "heatmap",
-        data: data,
-        itemStyle: {
-          emphasis: {
-            borderColor: "#333",
-            borderWidth: 1
-          }
-        },
-        progressive: 1000,
-        animation: false
-      }
-    ]
-  };
   return (
     <Container>
-      <Container>
-        <img src="https://dummyimage.com/600x400/000/fff" alt="" />
-      </Container>
+      <img src={`st0${num}.png`} width="800px" height="500px" alt="" />
     </Container>
   );
 };

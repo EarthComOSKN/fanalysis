@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import styled from "@emotion/styled";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { ChartBox, HeatMap } from "../components/Chart";
 import { Container } from "../components/Layout";
 import Filter from "../components/Filter";
@@ -10,16 +10,41 @@ import Timeline from "../components/Timeline";
 import CountUp from "react-countup";
 import { Card } from "../components/Card";
 
+const Circle = ({ color }) => {
+  return (
+    <spa
+      css={css`
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: ${color};
+        margin-right: 1rem;
+        margin-left: 1rem;
+      `}
+    />
+  );
+};
+
 const User = () => {
   const [activeTime, setActiveTime] = useState("10:00");
+  const [oldUser, setOldUser] = useState(200);
+  const [newUser, setNewUser] = useState(100);
+  const [num, setNum] = useState(1);
+
+  useEffect(() => {
+    const t1 = (Math.floor(Math.random() * 10000) % 400) + 100;
+    const t2 = (Math.floor(Math.random() * 10000) % 200) + 100;
+    setOldUser(t1);
+    setNewUser(t2);
+  }, [num]);
   return (
     <Container
       margin="0"
-      padding="1rem"
+      padding="0.5rem"
       css={css`
         width: 100%;
         max-width: 1200px;
-        margin: 0 4rem;
+        margin: 0 2rem;
       `}
     >
       <Title>VISITORS</Title>
@@ -31,9 +56,13 @@ const User = () => {
             margin-right: 24px;
           `}
         >
-          <Timeline activeTime={activeTime} setActiveTime={setActiveTime} />
+          <Timeline
+            setNum={setNum}
+            activeTime={activeTime}
+            setActiveTime={setActiveTime}
+          />
         </div>
-        <div>
+        <div css={css``}>
           <Container
             padding="1rem 1rem 1rem 1rem"
             margin="1rem 1rem 1rem 1rem"
@@ -49,7 +78,7 @@ const User = () => {
               }}
             >
               <CountUp
-                end={100}
+                end={oldUser}
                 css={css`
                   font-size: 3rem;
                 `}
@@ -63,16 +92,70 @@ const User = () => {
               }}
             >
               <CountUp
-                end={200}
+                end={newUser}
                 css={css`
                   font-size: 3rem;
                 `}
               />
             </Card>
           </Container>
-          <ChartBox title="HeatMap">
-            <HeatMap />
-          </ChartBox>
+          <Card>
+            <Container row>
+              <div
+                css={css`
+                  display: flex;
+                  flex-direction: row;
+                  color: white;
+                  font-size: 1.5rem;
+                  font-weight: 500;
+                `}
+              >
+                {" "}
+                <Circle color="green" />
+                <div>Men New User</div>
+              </div>
+              <div
+                css={css`
+                  display: flex;
+                  flex-direction: row;
+                  color: white;
+                  font-size: 1.5rem;
+                  font-weight: 500;
+                `}
+              >
+                {" "}
+                <Circle color="green" />
+                <div>Women New User</div>
+              </div>
+              <div
+                css={css`
+                  display: flex;
+                  flex-direction: row;
+                  color: white;
+                  font-size: 1.5rem;
+                  font-weight: 500;
+                `}
+              >
+                {" "}
+                <Circle color="green" />
+                <div>Men Old User</div>
+              </div>
+              <div
+                css={css`
+                  display: flex;
+                  flex-direction: row;
+                  color: white;
+                  font-size: 1.5rem;
+                  font-weight: 500;
+                `}
+              >
+                {" "}
+                <Circle color="green" />
+                <div>Women Old User</div>
+              </div>
+            </Container>
+            <HeatMap num={num} />
+          </Card>
         </div>
       </Container>
     </Container>
