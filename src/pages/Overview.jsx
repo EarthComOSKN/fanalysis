@@ -178,14 +178,16 @@ const Overview = () => {
     const { data } = await axios.get(
       "https://api.sheety.co/22c03d7b-d182-4d71-8b80-0847d7dab456"
     );
+    let i = 0;
     const formatData = [];
-    data.map((d, idx) =>
+    data.map((d, idx) => {
       formatData.push({
         value: d.number,
         label: d.gender,
-        name: d.gender
-      })
-    );
+        name: i === 0 ? "Male" : "Female"
+      });
+      i++;
+    });
     setGender(formatData);
   };
 
@@ -231,31 +233,10 @@ const Overview = () => {
           />
           <VerticalBarCard
             title="DURATION"
-            data={[
-              40,
-              100,
-              50,
-              10,
-              40,
-              100,
-              50,
-              10,
-              40,
-              100,
-              50,
-              10,
-              40,
-              100,
-              50,
-              10,
-              40,
-              100,
-              50,
-              10
-            ]}
+            data={[40, 100, 50, 10, 40, 100, 50]}
             cardStyle={{
-              width: "40%",
-              minHeight: "300px"
+              width: "35%",
+              minHeight: "350px"
             }}
             chartStyle={{
               height: "100%",
