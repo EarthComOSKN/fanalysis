@@ -3,10 +3,19 @@ import { css, jsx } from "@emotion/core";
 import { Layout } from "antd";
 import { Container, Title } from "../components/Layout";
 import styled from "@emotion/styled";
+import { ReactComponent as OverviewIcon } from "../icons/tiles.svg";
+import { ReactComponent as UserIcon } from "../icons/users.svg";
+import { ReactComponent as GenderIcon } from "../icons/love.svg";
+import { ReactComponent as TimeIcon } from "../icons/time.svg";
+import { ReactComponent as GIcon } from "../icons/graph.svg";
+import { ReactComponent as MapIcon } from "../icons/map.svg";
+
 import { Link } from "react-router-dom";
 const { Sider } = Layout;
 
 const MyButton = styled.div`
+  display: flex;
+  flex-direction: row;
   color: white;
   background: none;
   -moz-transition: all 0.2s ease-in;
@@ -16,7 +25,7 @@ const MyButton = styled.div`
   border: none;
   font-weight: 400;
   text-align: left;
-  padding: 1rem 0 1rem 3.5rem;
+  padding: 1rem 0 1rem 3rem;
   font-size: 1rem;
   cursor: pointer;
   ${props => (props.active ? "background-color: #1984FC;" : "")}
@@ -50,26 +59,105 @@ const Panal = () => {
       `}
     >
       <a href="/">
-        <MyButton active={window.location.pathname === "/"}>OVERVIEW</MyButton>
+        <MyButton active={window.location.pathname === "/"}>
+          {" "}
+          <OverviewIcon
+            css={css`
+              width: 30px;
+              height: 30px;
+            `}
+          />
+          <div
+            css={css`
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              margin-left: 1rem;
+            `}
+          >
+            OVERVIEW
+          </div>
+        </MyButton>
       </a>
       <a href="/user">
         <MyButton active={window.location.pathname === "/user"}>
-          VISITORS
+          <UserIcon
+            css={css`
+              width: 30px;
+              height: 30px;
+            `}
+          />
+          <div
+            css={css`
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              margin-left: 1rem;
+            `}
+          >
+            VISITORS
+          </div>
         </MyButton>
       </a>
       <a href="/">
-        <MyButton>GENDER</MyButton>
+        <MyButton>
+          <GenderIcon
+            css={css`
+              width: 30px;
+              height: 30px;
+            `}
+          />
+          <div
+            css={css`
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              margin-left: 1rem;
+            `}
+          >
+            GENDER
+          </div>
+        </MyButton>
       </a>
       <a href="/">
-        <MyButton>DURATION</MyButton>
+        <MyButton>
+          <MapIcon
+            css={css`
+              width: 30px;
+              height: 30px;
+            `}
+          />
+          <div
+            css={css`
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              margin-left: 1rem;
+            `}
+          >
+            CUSTOMER JOURNEY
+          </div>
+        </MyButton>
       </a>
       <a href="/retention">
         <MyButton active={window.location.pathname === "/retention"}>
-          RETENTION
+          <GIcon
+            css={css`
+              width: 30px;
+              height: 30px;
+            `}
+          />
+          <div
+            css={css`
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              margin-left: 1rem;
+            `}
+          >
+            RETENTION
+          </div>
         </MyButton>
-      </a>
-      <a href="/">
-        <MyButton>CUSTOMER JOURNEY</MyButton>
       </a>
     </div>
   );
