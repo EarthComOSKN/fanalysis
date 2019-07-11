@@ -51,9 +51,7 @@ const Retention = () => {
         align='center'
       >
         <Card
-          css={css`
-            width: 50%;
-          `}
+          style={{ width: '70%' }}
         >
           <LineChart
             data={lineData[choose]}
