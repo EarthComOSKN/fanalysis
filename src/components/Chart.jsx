@@ -218,4 +218,27 @@ export const VerticalBarChart = ({ data, style, loading }) => {
   return <ReactEcharts style={style} option={option} showLoading={loading} />;
 };
 
+export const LineChart = ({ data, style, loading }) => {
+  const option = {
+    xAxis: {
+      type: "category",
+      data: []
+    },
+    yAxis: {
+      type: "value"
+    },
+    series: []
+  };
+
+  data.map(d => {
+    option.xAxis.data.push(d.name);
+    option.series.push({
+      type: "line",
+      data: d.data
+    });
+  });
+
+  return <ReactEcharts style={style} option={option} showLoading={loading} />;
+};
+
 export default null;
