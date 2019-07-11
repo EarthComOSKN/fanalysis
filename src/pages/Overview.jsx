@@ -194,7 +194,7 @@ const Overview = () => {
       margin="0"
       padding="2rem"
       css={css`
-        width: 1200px;
+        width: 100%;
         margin: 0 auto;
       `}
     >
@@ -231,7 +231,28 @@ const Overview = () => {
           />
           <VerticalBarCard
             title="DURATION"
-            data={[40, 100, 50, 10]}
+            data={[
+              40,
+              100,
+              50,
+              10,
+              40,
+              100,
+              50,
+              10,
+              40,
+              100,
+              50,
+              10,
+              40,
+              100,
+              50,
+              10,
+              40,
+              100,
+              50,
+              10
+            ]}
             cardStyle={{
               width: "40%",
               minHeight: "300px"
