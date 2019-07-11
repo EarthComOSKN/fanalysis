@@ -45,7 +45,7 @@ const Overview = () => {
           <Card
             title="VISITORS"
             style={{
-              width: "40%",
+              width: "20%",
               minHeight: "300px"
             }}
           >
@@ -61,7 +61,7 @@ const Overview = () => {
             data={gender}
             mountFunc={fetchGender}
             cardStyle={{
-              width: "20%",
+              width: "40%",
               minHeight: "300px"
             }}
             chartStyle={{
