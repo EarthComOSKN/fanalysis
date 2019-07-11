@@ -179,9 +179,10 @@ const Overview = () => {
       "https://api.sheety.co/22c03d7b-d182-4d71-8b80-0847d7dab456"
     );
     const formatData = [];
-    data.map(d =>
+    data.map((d, idx) =>
       formatData.push({
         value: d.number,
+        label: d.gender,
         name: d.gender
       })
     );
@@ -193,7 +194,8 @@ const Overview = () => {
       margin="0"
       padding="2rem"
       css={css`
-        height: 100%;
+        width: 1200px;
+        margin: 0 auto;
       `}
     >
       <Title>OVERVIEW</Title>

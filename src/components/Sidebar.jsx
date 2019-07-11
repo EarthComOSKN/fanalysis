@@ -26,7 +26,7 @@ const MyButton = styled.div`
   font-weight: 400;
   text-align: left;
   padding: 1rem 0 1rem 3rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   cursor: pointer;
   ${props => (props.active ? "background-color: #1984FC;" : "")}
 
@@ -166,7 +166,7 @@ const Panal = () => {
 const Sidebar = () => {
   return (
     <Sider
-      width={300}
+      width={360}
       css={css`
         background-color: #121831;
       `}
