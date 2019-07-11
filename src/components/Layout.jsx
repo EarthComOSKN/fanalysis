@@ -1,10 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core'
 import styled from '@emotion/styled'
-import React from 'react'
 import { Drawer as AntDrawer, Button } from 'antd'
-
-
 
 export const Container = styled.div`
   display: flex;
