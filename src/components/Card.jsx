@@ -27,7 +27,7 @@ const CardTitle = styled.div`
   width: 100%;
   font-size: 24px;
   font-weight: bold;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.8px;
 `;
 const CardContent = styled.div`
   flex: 1;
