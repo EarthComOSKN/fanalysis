@@ -1,10 +1,14 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 import ReactCohortGraph from 'react-cohort-graph'
+import { useState } from 'react'
+import { Select } from 'antd'
 
 import { Container } from '../components/Layout'
 import { LineChart } from '../components/Chart'
 import { Card } from '../components/Card'
+
+const { Option } = Select
 
 const DATA = {
   weeks: {
@@ -30,6 +34,8 @@ const lineData = [
 ]
 
 const Retention = () => {
+  const [choose, setChoose] = useState(0)
+
   return (
     <Container
       margin='0'
@@ -50,13 +56,24 @@ const Retention = () => {
           `}
         >
           <LineChart
-            data={lineData}
+            data={lineData[choose]}
             style={{
               width: '100%',
               height: '300px'
             }}
           />
         </Card>
+        <Select
+          defaultValue={choose}
+          onChange={e => setChoose(e)}
+          css={css`
+            margin: 1rem 0;
+          `}
+        >
+          {lineData.map((data, index) => (
+            <Option value={index} key={index}>{data.name}</Option>
+          ))}
+        </Select>
         <div
           css={css`
             width: 80%;
