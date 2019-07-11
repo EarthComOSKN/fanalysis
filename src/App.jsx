@@ -10,6 +10,7 @@ import Overview from "./pages/Overview";
 import User from "./pages/User";
 import Retention from "./pages/Retention";
 import Gender from "./pages/Gender";
+import Customer from "./pages/Customer";
 
 const App = () => {
   return (
@@ -34,6 +35,7 @@ const App = () => {
             <Route path="/user" exact component={User} />
             <Route path="/retention" exact component={Retention} />
             <Route path="/gender" exact component={Gender} />
+            <Route path="/customer" exact component={Customer} />
           </Layout>
         </Layout>
       </Router>

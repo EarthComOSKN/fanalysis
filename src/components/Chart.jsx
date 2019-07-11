@@ -163,25 +163,209 @@ export const StackChart = ({ data, style, loading }) => {
 
 export const SimpleLineChart = () => {
   const option = {
+    textStyle: {
+      color: "white"
+    },
     xAxis: {
       type: "category",
       boundaryGap: false,
-      data: ["00:00", "01:00", "02:00", "Thu", "Fri", "Sat", "Sun"]
+      data: [
+        "00:00",
+        "01:00",
+        "02:00",
+        "03:00",
+        "04:00",
+        "05:00",
+        "06:00",
+        "07:00",
+        "08:00",
+        "09:00",
+        "10:00",
+        "11:00",
+        "12:00",
+        "13:00",
+        "14:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "18:00",
+        "19:00",
+        "20:00",
+        "21:00",
+        "22:00",
+        "23:00",
+        "24:00"
+      ]
     },
     yAxis: {
       type: "value"
     },
     series: [
       {
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        data: [
+          820,
+          932,
+          901,
+          934,
+          1290,
+          1330,
+          1320,
+          820,
+          932,
+          901,
+          934,
+          1290,
+          1330,
+          1320,
+          820,
+          932,
+          901,
+          934,
+          1290,
+          1330,
+          1320,
+          820,
+          932,
+          901,
+          934
+        ],
         type: "line",
         areaStyle: {}
       }
     ]
   };
-  return <ReactEcharts option={option} />;
+  return (
+    <ReactEcharts
+      option={option}
+      style={{ width: "100%", height: "600px" }}
+      theme="my_theme"
+    />
+  );
 };
 
+export const GenderTimeChart = () => {
+  const option = {
+    textStyle: {
+      color: "white"
+    },
+    title: {
+      text: "折线图堆叠"
+    },
+    tooltip: {
+      trigger: "axis"
+    },
+    legend: {
+      data: ["邮件营销", "联盟广告", "视频广告", "直接访问", "搜索引擎"]
+    },
+    grid: {
+      left: "3%",
+      right: "4%",
+      bottom: "3%",
+      containLabel: true
+    },
+    toolbox: {
+      feature: {
+        saveAsImage: {}
+      }
+    },
+    xAxis: {
+      type: "category",
+      boundaryGap: false,
+      data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+    },
+    yAxis: {
+      type: "value"
+    },
+    series: [
+      {
+        name: "邮件营销",
+        type: "line",
+        stack: "总量",
+        data: [120, 132, 101, 134, 90, 230, 210]
+      },
+      {
+        name: "联盟广告",
+        type: "line",
+        stack: "总量",
+        data: [220, 182, 191, 234, 290, 330, 310]
+      },
+      {
+        name: "视频广告",
+        type: "line",
+        stack: "总量",
+        data: [150, 232, 201, 154, 190, 330, 410]
+      },
+      {
+        name: "直接访问",
+        type: "line",
+        stack: "总量",
+        data: [320, 332, 301, 334, 390, 330, 320]
+      },
+      {
+        name: "搜索引擎",
+        type: "line",
+        stack: "总量",
+        data: [820, 932, 901, 934, 1290, 1330, 1320]
+      }
+    ]
+  };
+  return (
+    <ReactEcharts
+      option={option}
+      style={{ width: "100%", height: "600px" }}
+      theme="my_theme"
+    />
+  );
+};
+
+export const DurationChart = () => {
+  const option = {
+    textStyle: {
+      color: "white"
+    },
+    color: ["#3398DB"],
+    tooltip: {
+      trigger: "axis",
+      axisPointer: {
+        // 坐标轴指示器，坐标轴触发有效
+        type: "shadow" // 默认为直线，可选为：'line' | 'shadow'
+      }
+    },
+    grid: {
+      left: "3%",
+      right: "4%",
+      bottom: "3%",
+      containLabel: true
+    },
+    xAxis: [
+      {
+        type: "category",
+        data: ["20", "40", "60", "80", "100"],
+        axisTick: {
+          alignWithLabel: true
+        },
+        name: "People"
+      }
+    ],
+    yAxis: [
+      {
+        name: "Minutes",
+        type: "value"
+      }
+    ],
+    series: [
+      {
+        name: "Avg Time Spend",
+        type: "bar",
+        barWidth: "60%",
+        data: [69, 220, 160, 434, 120]
+      }
+    ]
+  };
+  return (
+    <ReactEcharts option={option} style={{ width: "100%", height: "600px" }} />
+  );
+};
 export const VerticalBarChart = ({ data, style, loading }) => {
   const option = {
     tooltip: {

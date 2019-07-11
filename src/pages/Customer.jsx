@@ -17,7 +17,11 @@ import {
 } from "../components/Card";
 import { Title } from "../components/Title";
 import styled from "@emotion/styled";
-import { SimpleLineChart } from "../components/Chart";
+import {
+  SimpleLineChart,
+  GenderTimeChart,
+  DurationChart
+} from "../components/Chart";
 
 const Col = styled.div`
   display: flex;
@@ -172,7 +176,7 @@ const Header = () => {
     </Container>
   );
 };
-const Overview = () => {
+const Customer = () => {
   const [gender, setGender] = useState([]);
 
   const fetchGender = async () => {
@@ -202,8 +206,7 @@ const Overview = () => {
         margin: 0 auto;
       `}
     >
-      <Title>CUSTOMER-JOURNY</Title>
-      <Header />
+      <Title>CUSTOMER JOURNEY</Title>
       <Card
         nonebg
         title="VISITORS"
@@ -214,6 +217,85 @@ const Overview = () => {
       >
         <SimpleLineChart />
       </Card>
+      <SankyCard
+        cardStyle={{
+          width: "100%",
+          minHeight: "600px"
+        }}
+        chartStyle={{ width: "100%", height: "600px" }}
+        title="CUSTOMER JOURNEY"
+        data={[
+          { name: "entrance1" },
+          { name: "entrance2" },
+          { name: "men" },
+          { name: "women" },
+          { name: "cashier" },
+          { name: "exit" },
+          { name: "fitting room" }
+        ]}
+        link={[
+          {
+            source: "entrance1",
+            target: "women",
+            value: 5,
+            lineStyle: { color: "#e0e0e0" }
+          },
+          {
+            source: "entrance1",
+            target: "men",
+            value: 3,
+            lineStyle: { color: "#e0e0e0" }
+          },
+          {
+            source: "entrance2",
+            target: "women",
+            value: 8,
+            lineStyle: { color: "#e0e0e0" }
+          },
+          {
+            source: "women",
+            target: "cashier",
+            value: 3,
+            lineStyle: { color: "#e0e0e0" }
+          },
+          {
+            source: "women",
+            target: "fitting room",
+            value: 5,
+            lineStyle: { color: "#e0e0e0" }
+          },
+          {
+            source: "fitting room",
+            target: "cashier",
+            value: 2,
+            lineStyle: { color: "#e0e0e0" }
+          },
+          {
+            source: "fitting room",
+            target: "exit",
+            value: 3,
+            lineStyle: { color: "#e0e0e0" }
+          },
+          {
+            source: "men",
+            target: "cashier",
+            value: 3,
+            lineStyle: { color: "#e0e0e0" }
+          },
+          {
+            source: "cashier",
+            target: "exit",
+            value: 1,
+            lineStyle: { color: "#e0e0e0" }
+          },
+          {
+            source: "entrance1",
+            target: "exit",
+            value: 2,
+            lineStyle: { color: "#e0e0e0" }
+          }
+        ]}
+      />
       <Card
         nonebg
         title="VISITORS"
@@ -222,7 +304,7 @@ const Overview = () => {
           minHeight: "600px"
         }}
       >
-        <SimpleLineChart />
+        <GenderTimeChart />
       </Card>
       <Card
         nonebg
@@ -232,172 +314,10 @@ const Overview = () => {
           minHeight: "600px"
         }}
       >
-        <SimpleLineChart />
+        <DurationChart />
       </Card>
-      <Card
-        nonebg
-        title="VISITORS"
-        style={{
-          width: "100%",
-          minHeight: "600px"
-        }}
-      >
-        <SimpleLineChart />
-      </Card>
-      <Container margin="0" padding="0">
-        <Flex>
-          <Card
-            title="TOTAL VISITORS"
-            style={{
-              width: "25%",
-              minHeight: "300px"
-            }}
-          >
-            <CountUp
-              end={45678}
-              css={css`
-                font-size: 3rem;
-              `}
-            />
-          </Card>
-          <PieCard
-            title="GENDER"
-            data={gender}
-            mountFunc={fetchGender}
-            cardStyle={{
-              width: "30%",
-              minHeight: "300px"
-            }}
-            chartStyle={{
-              height: "100%",
-              width: "100%"
-            }}
-          />
-          <VerticalBarCard
-            title="DURATION"
-            data={[40, 100, 50, 10, 40, 100, 50]}
-            cardStyle={{
-              width: "45%",
-              minHeight: "350px"
-            }}
-            chartStyle={{
-              height: "100%",
-              width: "100%"
-            }}
-          />
-        </Flex>
-        <Flex>
-          <StackBarCard
-            title="RETENTION"
-            data={[
-              {
-                name: "new",
-                data: [20, 30, 15, 20]
-              },
-              {
-                name: "old",
-                data: [0, -10, -15, -15]
-              },
-              {
-                name: "resurrent",
-                data: [0, 0, 5, 10]
-              }
-            ]}
-            cardStyle={{
-              width: "50%",
-              minHeight: "400px"
-            }}
-            chartStyle={{
-              height: "100%",
-              width: "100%"
-            }}
-          />
-          <SankyCard
-            title="CUSTOMER JOURNEY"
-            data={[
-              { name: "entrance1" },
-              { name: "entrance2" },
-              { name: "men" },
-              { name: "women" },
-              { name: "cashier" },
-              { name: "exit" },
-              { name: "fitting room" }
-            ]}
-            link={[
-              {
-                source: "entrance1",
-                target: "women",
-                value: 5,
-                lineStyle: { color: "#e0e0e0" }
-              },
-              {
-                source: "entrance1",
-                target: "men",
-                value: 3,
-                lineStyle: { color: "#e0e0e0" }
-              },
-              {
-                source: "entrance2",
-                target: "women",
-                value: 8,
-                lineStyle: { color: "#e0e0e0" }
-              },
-              {
-                source: "women",
-                target: "cashier",
-                value: 3,
-                lineStyle: { color: "#e0e0e0" }
-              },
-              {
-                source: "women",
-                target: "fitting room",
-                value: 5,
-                lineStyle: { color: "#e0e0e0" }
-              },
-              {
-                source: "fitting room",
-                target: "cashier",
-                value: 2,
-                lineStyle: { color: "#e0e0e0" }
-              },
-              {
-                source: "fitting room",
-                target: "exit",
-                value: 3,
-                lineStyle: { color: "#e0e0e0" }
-              },
-              {
-                source: "men",
-                target: "cashier",
-                value: 3,
-                lineStyle: { color: "#e0e0e0" }
-              },
-              {
-                source: "cashier",
-                target: "exit",
-                value: 1,
-                lineStyle: { color: "#e0e0e0" }
-              },
-              {
-                source: "entrance1",
-                target: "exit",
-                value: 2,
-                lineStyle: { color: "#e0e0e0" }
-              }
-            ]}
-            cardStyle={{
-              width: "50%",
-              minHeight: "400px"
-            }}
-            chartStyle={{
-              height: "100%",
-              width: "100%"
-            }}
-          />
-        </Flex>
-      </Container>
     </Container>
   );
 };
 
-export default Overview;
+export default Customer;

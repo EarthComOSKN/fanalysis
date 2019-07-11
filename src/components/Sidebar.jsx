@@ -131,8 +131,9 @@ const Panal = props => {
         </div>
       </MyButton>
       <MyButton
+        active={window.location.pathname === "/customer"}
         onClick={() => {
-          props.history.push("/");
+          props.history.push("/customer");
         }}
       >
         <MapIcon
