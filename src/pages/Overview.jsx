@@ -122,32 +122,38 @@ const Overview = () => {
               {
                 source: "a",
                 target: "a1",
-                value: 5
+                value: 5,
+                lineStyle: {color: '#e0e0e0'}
               },
               {
                 source: "a",
                 target: "a2",
-                value: 3
+                value: 3,
+                lineStyle: {color: '#e0e0e0'}
               },
               {
                 source: "b",
                 target: "b1",
-                value: 8
+                value: 8,
+                lineStyle: {color: '#e0e0e0'}
               },
               {
                 source: "a",
                 target: "b1",
-                value: 3
+                value: 3,
+                lineStyle: {color: '#e0e0e0'}
               },
               {
                 source: "b1",
                 target: "a1",
-                value: 1
+                value: 1,
+                lineStyle: {color: '#e0e0e0'}
               },
               {
                 source: "b1",
                 target: "c",
-                value: 2
+                value: 2,
+                lineStyle: {color: '#e0e0e0'}
               }
             ]}
             cardStyle={{
