@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core'
-import ReactEcharts from 'echarts-for-react'
+import { jsx, css } from "@emotion/core";
+import ReactEcharts from "echarts-for-react";
 import styled from "@emotion/styled";
-
+import { Container } from "../components/Layout";
 export const ChartBox = ({ children, title }) => {
   return (
     <Container
@@ -97,30 +97,26 @@ export const PieChart = ({ data, style, loading }) => {
   const option = {
     tooltip: {
       show: true,
-      formatter: (params) => {
-        let res = ''
-        res += `Value : ${params.value.toLocaleString()}</br>`
-        res += `Percent : ${params.percent}%`
+      formatter: params => {
+        let res = "";
+        res += `Value : ${params.value.toLocaleString()}</br>`;
+        res += `Percent : ${params.percent}%`;
         return res;
       }
     },
-    series: [{
-      name: 'pie',
-      type: 'pie',
-      selectedMode: 'single',
-      selectedOffset: 30,
-      clockwise: true,
-      data
-    }]
-  }
-  
-  return (
-    <ReactEcharts
-      style={style}
-      option={option}
-      showLoading={loading}
-    />
-  )
-}
+    series: [
+      {
+        name: "pie",
+        type: "pie",
+        selectedMode: "single",
+        selectedOffset: 30,
+        clockwise: true,
+        data
+      }
+    ]
+  };
 
-export default null
+  return <ReactEcharts style={style} option={option} showLoading={loading} />;
+};
+
+export default null;
