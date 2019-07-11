@@ -16,6 +16,10 @@ export const Container = styled.div`
   ${"" /* ${props=> (props.notOverflow ? '' : 'overflow: auto;' )} */}
 `;
 
+export const Flex = styled.div`
+  display: flex;
+`;
+
 export const Title = styled.div`
   color: black;
   font-size: 2rem;

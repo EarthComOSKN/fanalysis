@@ -220,6 +220,12 @@ export const VerticalBarChart = ({ data, style, loading }) => {
 
 export const LineChart = ({ data, style, loading }) => {
   const option = {
+    tooltip : {
+      trigger: 'axis',
+      axisPointer : {
+        type : 'shadow'
+      }
+    },
     xAxis: {
       type: "category",
       data: []
@@ -230,6 +236,7 @@ export const LineChart = ({ data, style, loading }) => {
     series: []
   };
 
+<<<<<<< HEAD
   data.map(d => {
     option.xAxis.data.push(d.name);
     option.series.push({
@@ -237,6 +244,15 @@ export const LineChart = ({ data, style, loading }) => {
       data: d.data
     });
   });
+=======
+  data.data.map((dd, i) => {
+    option.xAxis.data.push(`week ${i + 1}`)
+  })
+  option.series.push({
+    type: 'line',
+    data: data.data
+  })
+>>>>>>> 5370c3ee97aefd002cb9d1c843992216cbee9f2c
 
   return <ReactEcharts style={style} option={option} showLoading={loading} />;
 };
