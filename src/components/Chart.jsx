@@ -6,7 +6,7 @@ import { Slider } from "antd";
 import { Container } from "./Layout";
 
 echarts.registerTheme("my_theme", {
-  color: ["#53D6A9", "#CA47CE", "#3CC9F5", "#8E4AF5", "#D28F84"]
+  color: ["#53D6A9", "#8E4AF5", "#3CC9F5", "#CA47CE", "#D28F84"]
 });
 export const ChartBox = ({ title, children }) => {
   return (
