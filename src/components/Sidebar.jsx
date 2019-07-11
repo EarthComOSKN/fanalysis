@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import { Layout, Button } from "antd";
+import { Layout } from "antd";
 import { Container, Title } from "../components/Layout";
 import styled from "@emotion/styled";
-const { Header, Footer, Sider, Content } = Layout;
+const { Sider } = Layout;
 
 const MyButton = styled.div`
   color: white;
@@ -42,7 +42,6 @@ const Panal = () => {
   return (
     <div
       css={css`
-        height: 100%;
         display: flex;
         flex-direction: column;
       `}
