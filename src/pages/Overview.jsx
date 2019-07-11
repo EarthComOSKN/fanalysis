@@ -28,7 +28,6 @@ const Overview = () => {
       padding='1rem'
       css={css`
         height: 100%;
-        background-color: gray;
       `}
     >
       <Container
