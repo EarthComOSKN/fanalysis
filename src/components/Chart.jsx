@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core'
-import ReactEcharts from 'echarts-for-react'
-
-import { Container } from './Layout'
+import { jsx, css } from "@emotion/core";
+import ReactEcharts from "echarts-for-react";
+import { Slider } from "antd";
+import { Container } from "./Layout";
 
 export const ChartBox = ({ title, children }) => {
   return (
@@ -19,6 +19,20 @@ export const ChartBox = ({ title, children }) => {
       {children}
     </Container>
   );
+};
+
+const marks = {
+  0: "10:00",
+  10: "11:00",
+  20: "12:00",
+  30: "13:00",
+  40: "14:00",
+  50: "15:00",
+  60: "16:00",
+  70: "17:00",
+  80: "18:00",
+  90: "19:00",
+  100: "20:00"
 };
 
 export const HeatMap = () => {
@@ -88,9 +102,23 @@ export const HeatMap = () => {
     ]
   };
   return (
-    <div>
-      <ReactEcharts style={{ width: "100%" }} option={option} />
-    </div>
+    <Container>
+      <Container>
+        <img src="https://dummyimage.com/600x400/000/fff" alt="" />
+      </Container>
+      <div>
+        <Slider
+          marks={marks}
+          step={10}
+          defaultValue={37}
+          css={css`
+            .ant-slider-mark-text {
+              color: white;
+            }
+          `}
+        />
+      </div>
+    </Container>
   );
 };
 
@@ -123,87 +151,71 @@ export const PieChart = ({ data, style, loading }) => {
 export const SankyChart = ({ data, link, style, loading }) => {
   const option = {
     series: {
-      name: 'sankey',
-      type: 'sankey',
-      layout:'none',
-      focusNodeAdjacency: 'allEdges',
+      name: "sankey",
+      type: "sankey",
+      layout: "none",
+      focusNodeAdjacency: "allEdges",
       data,
       links: link
     }
-  }
+  };
 
-  return (
-    <ReactEcharts
-      style={style}
-      option={option}
-      showLoading={loading}
-    />
-  )
-}
+  return <ReactEcharts style={style} option={option} showLoading={loading} />;
+};
 
-export const StackChart = ({ data, style, loading}) => {
+export const StackChart = ({ data, style, loading }) => {
   const option = {
-    tooltip : {
-      trigger: 'axis',
-      axisPointer : {
-        type : 'shadow'
+    tooltip: {
+      trigger: "axis",
+      axisPointer: {
+        type: "shadow"
       }
     },
     xAxis: {
-      type: 'category',
+      type: "category"
     },
     yAxis: {
-      type: 'value'
+      type: "value"
     },
     series: []
-  }
+  };
 
-  data.map(d => 
+  data.map(d =>
     option.series.push({
       name: d.name,
-      type: 'bar',
-      stack: 'group',
+      type: "bar",
+      stack: "group",
       data: d.data
     })
-  )
+  );
 
-  return (
-    <ReactEcharts
-      style={style}
-      option={option}
-      showLoading={loading}
-    />
-  )
-}
+  return <ReactEcharts style={style} option={option} showLoading={loading} />;
+};
 
-export const VerticalBarChart = ({ data, style, loading}) => {
+export const VerticalBarChart = ({ data, style, loading }) => {
   const option = {
-    tooltip : {
-      trigger: 'axis',
-      axisPointer : {
-        type : 'shadow'
+    tooltip: {
+      trigger: "axis",
+      axisPointer: {
+        type: "shadow"
       }
     },
     xAxis: {
-      type: 'category',
+      type: "category"
     },
     yAxis: {
-      type: 'value'
+      type: "value"
     },
-    series: [{
-      name: 'data',
-      type: 'bar',
-      data
-    }]
-  }
+    series: [
+      {
+        name: "data",
+        type: "bar",
+        data
+      }
+    ]
+  };
 
-  return (
-    <ReactEcharts
-      style={style}
-      option={option}
-      showLoading={loading}
-    />
-  )
-}
+  return <ReactEcharts style={style} option={option} showLoading={loading} />;
+};
 
-export default null
+export default null;
