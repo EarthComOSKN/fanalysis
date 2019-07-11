@@ -137,8 +137,6 @@ export const PieChart = ({ data, style, loading }) => {
       {
         name: "pie",
         type: "pie",
-        selectedMode: "single",
-        selectedOffset: 30,
         clockwise: true,
         data
       }
@@ -172,10 +170,16 @@ export const StackChart = ({ data, style, loading }) => {
       }
     },
     xAxis: {
-      type: "category"
+      type: "category",
+      axisLine: {
+        lineStyle: {color: '#e0e0e0'}
+      },
     },
     yAxis: {
-      type: "value"
+      type: "value",
+      axisLine: {
+        lineStyle: {color: '#e0e0e0'}
+      },
     },
     series: []
   };
@@ -201,10 +205,16 @@ export const VerticalBarChart = ({ data, style, loading }) => {
       }
     },
     xAxis: {
-      type: "category"
+      type: "category",
+      axisLine: {
+        lineStyle: {color: '#e0e0e0'}
+      },
     },
     yAxis: {
-      type: "value"
+      type: "value",
+      axisLine: {
+        lineStyle: {color: '#e0e0e0'}
+      },
     },
     series: [
       {
