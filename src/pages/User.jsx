@@ -7,10 +7,14 @@ const User = () => {
   return (
     <div>
       <Container>
-        <ChartBox>
+        <Container padding="0" row fullwidth justify="center">
+          <ChartBox title="Customer Enter">Enter</ChartBox>
+          <ChartBox title="Customer Exit">Exit</ChartBox>
+        </Container>
+        <ChartBox title="HeatMap">
           <HeatMap />
         </ChartBox>
-        <ChartBox>
+        <ChartBox title="HeatMap">
           <HeatMap />
         </ChartBox>
       </Container>

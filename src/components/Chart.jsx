@@ -4,16 +4,18 @@ import styled from "@emotion/styled";
 import { Container } from "./Layout";
 import ReactEcharts from "echarts-for-react";
 
-export const ChartBox = ({ children }) => {
+export const ChartBox = ({ children, title }) => {
   return (
     <Container
+      fullWidth
       css={css`
-        background-color: gray;
-        border-radius: 50px;
-        padding-top: 5rem;
-        padding-bottom: 5rem;
+        box-shadow: 5px 10px 18px #888888;
+        border-radius: 5px;
+        padding: 1rem 1rem 1rem 1rem;
+        margin: 1rem 1rem 1rem 1rem;
       `}
     >
+      <div css={css``}>{title}</div>
       {children}
     </Container>
   );
@@ -87,7 +89,7 @@ export const HeatMap = () => {
   };
   return (
     <div>
-      <ReactEcharts option={option} />
+      <ReactEcharts style={{ width: "100%" }} option={option} />
     </div>
   );
 };
