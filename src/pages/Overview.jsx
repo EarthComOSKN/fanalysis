@@ -197,6 +197,7 @@ const Overview = () => {
       padding="2rem"
       css={css`
         width: 100%;
+        max-width: 1200px;
         margin: 0 auto;
       `}
     >
@@ -207,14 +208,14 @@ const Overview = () => {
           <Card
             title="VISITORS"
             style={{
-              width: "20%",
+              width: "25%",
               minHeight: "300px"
             }}
           >
             <CountUp
               end={45678}
               css={css`
-                font-size: 2rem;
+                font-size: 3rem;
               `}
             />
           </Card>
@@ -223,7 +224,7 @@ const Overview = () => {
             data={gender}
             mountFunc={fetchGender}
             cardStyle={{
-              width: "40%",
+              width: "35%",
               minHeight: "300px"
             }}
             chartStyle={{
@@ -235,7 +236,7 @@ const Overview = () => {
             title="DURATION"
             data={[40, 100, 50, 10, 40, 100, 50]}
             cardStyle={{
-              width: "35%",
+              width: "40%",
               minHeight: "350px"
             }}
             chartStyle={{
