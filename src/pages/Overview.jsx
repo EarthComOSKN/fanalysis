@@ -3,7 +3,8 @@ import { css, jsx } from "@emotion/core";
 import { useState } from "react";
 import axios from "axios";
 import CountUp from "react-countup";
-
+import { ReactComponent as OverviewIcon } from "../icons/tiles.svg";
+import { ReactComponent as UserIcon } from "../icons/user.svg";
 import { Container, Flex } from "../components/Layout";
 import {
   Card,
@@ -13,7 +14,28 @@ import {
   StackBarCard
 } from "../components/Card";
 import { Title } from "../components/Title";
+import styled from "@emotion/styled";
 
+const Col = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-grow: ${props => props.grow || 1};
+  height: 100px;
+  ${props => (props.divide ? `border-right: 1px solid white;` : "")}
+  justify-content: center;
+`;
+
+const Row = styled.div`
+  display: flex;
+  flex-grow: ${props => props.grow || 1};
+  justify-content: center;
+`;
+
+const Section = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
 const Overview = () => {
   const [gender, setGender] = useState([]);
 
@@ -40,6 +62,35 @@ const Overview = () => {
       `}
     >
       <Title>OVERVIEW</Title>
+      <Container row fullWidth>
+        <Col divide>
+          <UserIcon />
+          <Col>
+            <div>sdf</div>
+          </Col>
+        </Col>
+        <Col
+          divide
+          css={css`
+            padding-left: 1.5rem;
+          `}
+        >
+          <UserIcon />
+          <Col>
+            <div>sdf</div>
+          </Col>
+        </Col>
+        <Col
+          css={css`
+            padding-left: 1.5rem;
+          `}
+        >
+          <UserIcon />
+          <Col>
+            <div>sdf</div>
+          </Col>
+        </Col>
+      </Container>
       <Container margin="0" padding="0">
         <Flex>
           <Card
@@ -123,37 +174,37 @@ const Overview = () => {
                 source: "a",
                 target: "a1",
                 value: 5,
-                lineStyle: {color: '#e0e0e0'}
+                lineStyle: { color: "#e0e0e0" }
               },
               {
                 source: "a",
                 target: "a2",
                 value: 3,
-                lineStyle: {color: '#e0e0e0'}
+                lineStyle: { color: "#e0e0e0" }
               },
               {
                 source: "b",
                 target: "b1",
                 value: 8,
-                lineStyle: {color: '#e0e0e0'}
+                lineStyle: { color: "#e0e0e0" }
               },
               {
                 source: "a",
                 target: "b1",
                 value: 3,
-                lineStyle: {color: '#e0e0e0'}
+                lineStyle: { color: "#e0e0e0" }
               },
               {
                 source: "b1",
                 target: "a1",
                 value: 1,
-                lineStyle: {color: '#e0e0e0'}
+                lineStyle: { color: "#e0e0e0" }
               },
               {
                 source: "b1",
                 target: "c",
                 value: 2,
-                lineStyle: {color: '#e0e0e0'}
+                lineStyle: { color: "#e0e0e0" }
               }
             ]}
             cardStyle={{
