@@ -166,7 +166,7 @@ const Panal = () => {
 const Sidebar = () => {
   return (
     <Sider
-      width={360}
+      width={300}
       css={css`
         background-color: #121831;
       `}

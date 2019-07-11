@@ -5,7 +5,9 @@ import axios from "axios";
 import CountUp from "react-countup";
 import { ReactComponent as OverviewIcon } from "../icons/tiles.svg";
 import { ReactComponent as UserIcon } from "../icons/user.svg";
+import { ReactComponent as CarlendarIcon } from "../icons/calendar.svg";
 import { Container, Flex } from "../components/Layout";
+
 import {
   Card,
   PieCard,
@@ -36,6 +38,139 @@ const Section = styled.div`
   flex-direction: column;
   justify-content: center;
 `;
+
+const Header = () => {
+  return (
+    <Container row fullWidth>
+      <Col divide>
+        <UserIcon />
+        <Col>
+          <div
+            css={css`
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            `}
+          >
+            <div
+              css={css`
+                font-size: 1.5rem;
+                color: #7681a4;
+              `}
+            >
+              MOST ACTIVE USER
+            </div>
+            <div
+              css={css`
+                padding-left: 1rem;
+                font-size: 1rem;
+                color: white;
+              `}
+            >
+              FEMALE
+            </div>
+            <div
+              css={css`
+                padding-left: 1rem;
+                font-size: 1rem;
+                color: white;
+              `}
+            >
+              20 - 25 YRS OLD
+            </div>
+          </div>
+        </Col>
+      </Col>
+      <Col
+        divide
+        css={css`
+          padding-left: 1.5rem;
+        `}
+      >
+        <CarlendarIcon />
+        <Col>
+          <div
+            css={css`
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            `}
+          >
+            <div
+              css={css`
+                font-size: 1.5rem;
+                color: #7681a4;
+              `}
+            >
+              MOST ACTIVE USER
+            </div>
+            <div
+              css={css`
+                padding-left: 1rem;
+                font-size: 1rem;
+                color: white;
+              `}
+            >
+              16:00 PM
+            </div>
+            <div
+              css={css`
+                padding-left: 1rem;
+                font-size: 1rem;
+                color: white;
+              `}
+            >
+              SUNDAY
+            </div>
+          </div>
+        </Col>
+      </Col>
+      <Col
+        css={css`
+          padding-left: 1.5rem;
+        `}
+      >
+        <CarlendarIcon />
+        <Col>
+          <div
+            css={css`
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            `}
+          >
+            <div
+              css={css`
+                font-size: 1.5rem;
+                color: #7681a4;
+              `}
+            >
+              MOST ACTIVE USER
+            </div>
+            <div
+              css={css`
+                padding-left: 1rem;
+                font-size: 1rem;
+                color: white;
+              `}
+            >
+              10:00 AM
+            </div>
+            <div
+              css={css`
+                padding-left: 1rem;
+                font-size: 1rem;
+                color: white;
+              `}
+            >
+              MONDAY
+            </div>
+          </div>
+        </Col>
+      </Col>
+    </Container>
+  );
+};
 const Overview = () => {
   const [gender, setGender] = useState([]);
 
@@ -43,14 +178,16 @@ const Overview = () => {
     const { data } = await axios.get(
       "https://api.sheety.co/22c03d7b-d182-4d71-8b80-0847d7dab456"
     );
+    let i = 0;
     const formatData = [];
-    data.map((d, idx) =>
+    data.map((d, idx) => {
       formatData.push({
         value: d.number,
         label: d.gender,
-        name: d.gender
-      })
-    );
+        name: i === 0 ? "Male" : "Female"
+      });
+      i++;
+    });
     setGender(formatData);
   };
 
@@ -59,40 +196,12 @@ const Overview = () => {
       margin="0"
       padding="2rem"
       css={css`
-        width: 1200px;
+        width: 100%;
         margin: 0 auto;
       `}
     >
       <Title>OVERVIEW</Title>
-      <Container row fullWidth>
-        <Col divide>
-          <UserIcon />
-          <Col>
-            <div>sdf</div>
-          </Col>
-        </Col>
-        <Col
-          divide
-          css={css`
-            padding-left: 1.5rem;
-          `}
-        >
-          <UserIcon />
-          <Col>
-            <div>sdf</div>
-          </Col>
-        </Col>
-        <Col
-          css={css`
-            padding-left: 1.5rem;
-          `}
-        >
-          <UserIcon />
-          <Col>
-            <div>sdf</div>
-          </Col>
-        </Col>
-      </Container>
+      <Header />
       <Container margin="0" padding="0">
         <Flex>
           <Card
@@ -124,10 +233,10 @@ const Overview = () => {
           />
           <VerticalBarCard
             title="DURATION"
-            data={[40, 100, 50, 10]}
+            data={[40, 100, 50, 10, 40, 100, 50]}
             cardStyle={{
-              width: "40%",
-              minHeight: "300px"
+              width: "35%",
+              minHeight: "350px"
             }}
             chartStyle={{
               height: "100%",
