@@ -3,6 +3,7 @@ import { css, jsx } from "@emotion/core";
 import { Layout } from "antd";
 import { Container, Title } from "../components/Layout";
 import styled from "@emotion/styled";
+import { Link } from 'react-router-dom'
 const { Sider } = Layout;
 
 const MyButton = styled.div`
@@ -46,12 +47,24 @@ const Panal = () => {
         flex-direction: column;
       `}
     >
-      <MyButton>OVERVIEWS</MyButton>
-      <MyButton>VISITORS</MyButton>
-      <MyButton>GENDER</MyButton>
-      <MyButton>DURATION</MyButton>
-      <MyButton>RETENTION</MyButton>
-      <MyButton>CUSTOMER JOURNEY</MyButton>
+      <MyButton>
+        <a href='/'>OVERVIEWS</a>
+      </MyButton>
+      <MyButton>
+        <a href='/user'>VISITORS</a>
+      </MyButton>
+      <MyButton>
+        <a href='/'>GENDER</a>
+      </MyButton>
+      <MyButton>
+        <a href='/'>DURATION</a>
+      </MyButton>
+      <MyButton>
+        <a href='/retention'>RETENTION</a>
+      </MyButton>
+      <MyButton>
+        <a href='/'>CUSTOMER JOURNEY</a>
+      </MyButton>
     </div>
   );
 };
