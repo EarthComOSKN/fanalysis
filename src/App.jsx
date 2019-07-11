@@ -7,6 +7,7 @@ import { Container } from './components/Layout'
 
 import Overview from './pages/Overview'
 import User from './pages/User'
+import Retention from './pages/Retention'
 
 const App = () => {
   return (
@@ -21,8 +22,9 @@ const App = () => {
     >
       <Navbar />
       <Router>
-        <Route path="/" exact component={Overview} />
-        <Route path="/user" exact component={User} />
+        <Route path='/' exact component={Overview} />
+        <Route path='/user' exact component={User} />
+        <Route path='/retention' exact component={Retention} />
       </Router>
     </Container>
   );
