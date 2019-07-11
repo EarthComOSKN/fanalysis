@@ -18,14 +18,14 @@ const App = () => {
       css={css`
         height: 100vh;
         width: 100vw;
-        background-image: linear-gradient(180deg, #314066 0%, #1b243c 61.46%);
+        background-image: linear-gradient(180deg, #303f65 0%, #121830 61.46%);
       `}
     >
       <Layout>
         <Sidebar />
         <Layout
           css={css`
-            background-image: linear-gradient(#314066, #1b243c);
+            background-image: linear-gradient(#303f65, #121830);
           `}
         >
           <Router>

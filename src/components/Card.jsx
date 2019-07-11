@@ -8,7 +8,7 @@ import { PieChart, VerticalBarChart, SankyChart, StackChart } from "./Chart";
 
 export const StyledAntdCard = styled(AntCard)`
   margin: 1rem 0 5px 0;
-  background-color: #2e375d;
+  background-color: #3e4a7d;
   color: white;
   border-width: 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
@@ -25,6 +25,9 @@ export const StyledAntdCard = styled(AntCard)`
 `;
 const CardTitle = styled.div`
   width: 100%;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 0.3px;
 `;
 const CardContent = styled.div`
   flex: 1;

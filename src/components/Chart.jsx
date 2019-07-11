@@ -1,9 +1,13 @@
 /** @jsx jsx */
 import { jsx, css } from "@emotion/core";
 import ReactEcharts from "echarts-for-react";
+import echarts from "echarts";
 import { Slider } from "antd";
 import { Container } from "./Layout";
 
+echarts.registerTheme("my_theme", {
+  color: ["#53D6A9", "#CA47CE", "#3CC9F5", "#8E4AF5", "#D28F84"]
+});
 export const ChartBox = ({ title, children }) => {
   return (
     <Container
@@ -143,7 +147,14 @@ export const PieChart = ({ data, style, loading }) => {
     ]
   };
 
-  return <ReactEcharts style={style} option={option} showLoading={loading} />;
+  return (
+    <ReactEcharts
+      style={style}
+      option={option}
+      showLoading={loading}
+      theme="my_theme"
+    />
+  );
 };
 
 export const SankyChart = ({ data, link, style, loading }) => {
@@ -158,7 +169,14 @@ export const SankyChart = ({ data, link, style, loading }) => {
     }
   };
 
-  return <ReactEcharts style={style} option={option} showLoading={loading} />;
+  return (
+    <ReactEcharts
+      style={style}
+      option={option}
+      showLoading={loading}
+      theme="my_theme"
+    />
+  );
 };
 
 export const StackChart = ({ data, style, loading }) => {
@@ -172,14 +190,14 @@ export const StackChart = ({ data, style, loading }) => {
     xAxis: {
       type: "category",
       axisLine: {
-        lineStyle: {color: '#e0e0e0'}
-      },
+        lineStyle: { color: "#e0e0e0" }
+      }
     },
     yAxis: {
       type: "value",
       axisLine: {
-        lineStyle: {color: '#e0e0e0'}
-      },
+        lineStyle: { color: "#e0e0e0" }
+      }
     },
     series: []
   };
@@ -193,7 +211,14 @@ export const StackChart = ({ data, style, loading }) => {
     })
   );
 
-  return <ReactEcharts style={style} option={option} showLoading={loading} />;
+  return (
+    <ReactEcharts
+      style={style}
+      option={option}
+      showLoading={loading}
+      theme="my_theme"
+    />
+  );
 };
 
 export const VerticalBarChart = ({ data, style, loading }) => {
@@ -207,14 +232,14 @@ export const VerticalBarChart = ({ data, style, loading }) => {
     xAxis: {
       type: "category",
       axisLine: {
-        lineStyle: {color: '#e0e0e0'}
-      },
+        lineStyle: { color: "#e0e0e0" }
+      }
     },
     yAxis: {
       type: "value",
       axisLine: {
-        lineStyle: {color: '#e0e0e0'}
-      },
+        lineStyle: { color: "#e0e0e0" }
+      }
     },
     series: [
       {
@@ -225,7 +250,14 @@ export const VerticalBarChart = ({ data, style, loading }) => {
     ]
   };
 
-  return <ReactEcharts style={style} option={option} showLoading={loading} />;
+  return (
+    <ReactEcharts
+      style={style}
+      option={option}
+      showLoading={loading}
+      theme="my_theme"
+    />
+  );
 };
 
 export const LineChart = ({ data, style, loading }) => {
@@ -240,14 +272,14 @@ export const LineChart = ({ data, style, loading }) => {
       type: "category",
       data: [],
       axisLine: {
-        lineStyle: {color: '#e0e0e0'}
-      },
+        lineStyle: { color: "#e0e0e0" }
+      }
     },
     yAxis: {
       type: "value",
       axisLine: {
-        lineStyle: {color: '#e0e0e0'}
-      },
+        lineStyle: { color: "#e0e0e0" }
+      }
     },
     series: []
   };
@@ -260,7 +292,14 @@ export const LineChart = ({ data, style, loading }) => {
     data: data.data
   });
 
-  return <ReactEcharts style={style} option={option} showLoading={loading} />;
+  return (
+    <ReactEcharts
+      style={style}
+      option={option}
+      showLoading={loading}
+      theme="my_theme"
+    />
+  );
 };
 
 export default null;
