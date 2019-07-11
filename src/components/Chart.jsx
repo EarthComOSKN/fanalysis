@@ -208,6 +208,12 @@ export const VerticalBarChart = ({ data, style, loading}) => {
 
 export const LineChart = ({ data, style, loading}) => {
   const option = {
+    tooltip : {
+      trigger: 'axis',
+      axisPointer : {
+        type : 'shadow'
+      }
+    },
     xAxis: {
       type: 'category',
       data: []
@@ -218,8 +224,10 @@ export const LineChart = ({ data, style, loading}) => {
     series: []
   }
 
-  data.map(d => { 
-    option.xAxis.data.push(d.name)
+  data.map(d => {
+    d.data.map((dd, i) => {
+      option.xAxis.data.push(`week ${i + 1}`)
+    })
     option.series.push({
       type: 'line',
       data: d.data
