@@ -206,4 +206,39 @@ export const VerticalBarChart = ({ data, style, loading}) => {
   )
 }
 
+export const LineChart = ({ data, style, loading}) => {
+  const option = {
+    tooltip : {
+      trigger: 'axis',
+      axisPointer : {
+        type : 'shadow'
+      }
+    },
+    xAxis: {
+      type: 'category',
+      data: []
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: []
+  }
+
+  data.data.map((dd, i) => {
+    option.xAxis.data.push(`week ${i + 1}`)
+  })
+  option.series.push({
+    type: 'line',
+    data: data.data
+  })
+
+  return (
+    <ReactEcharts
+      style={style}
+      option={option}
+      showLoading={loading}
+    />
+  )
+}
+
 export default null
