@@ -161,6 +161,27 @@ export const StackChart = ({ data, style, loading }) => {
   );
 };
 
+export const SimpleLineChart = () => {
+  const option = {
+    xAxis: {
+      type: "category",
+      boundaryGap: false,
+      data: ["00:00", "01:00", "02:00", "Thu", "Fri", "Sat", "Sun"]
+    },
+    yAxis: {
+      type: "value"
+    },
+    series: [
+      {
+        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        type: "line",
+        areaStyle: {}
+      }
+    ]
+  };
+  return <ReactEcharts option={option} />;
+};
+
 export const VerticalBarChart = ({ data, style, loading }) => {
   const option = {
     tooltip: {

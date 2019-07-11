@@ -85,11 +85,17 @@ const Timeline = ({ activeTime, setActiveTime, setNum }) => {
           <Row>
             <Dot
               active={time === activeTime}
-              onClick={() => setNum((Math.floor(Math.random() * 100) % 3) + 1)}
+              onClick={() => {
+                setActiveTime(time);
+                setNum((Math.floor(Math.random() * 100) % 3) + 1);
+              }}
             />
             <Text
               active={time === activeTime}
-              onClick={() => setNum((Math.floor(Math.random() * 100) % 3) + 1)}
+              onClick={() => {
+                setActiveTime(time);
+                setNum((Math.floor(Math.random() * 100) % 3) + 1);
+              }}
             >
               {time}
             </Text>

@@ -203,6 +203,21 @@ const Overview = () => {
     >
       <Title>OVERVIEW</Title>
       <Header />
+      <Card
+        nonebg
+        title="TOTAL VISITORS"
+        style={{
+          width: "100%",
+          minHeight: "600px"
+        }}
+      >
+        <CountUp
+          end={45678}
+          css={css`
+            font-size: 3rem;
+          `}
+        />
+      </Card>
       <Container margin="0" padding="0">
         <Flex>
           <Card
@@ -317,6 +332,12 @@ const Overview = () => {
                 source: "fitting room",
                 target: "cashier",
                 value: 2,
+                lineStyle: { color: "#e0e0e0" }
+              },
+              {
+                source: "fitting room",
+                target: "exit",
+                value: 3,
                 lineStyle: { color: "#e0e0e0" }
               },
               {

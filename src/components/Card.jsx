@@ -8,7 +8,7 @@ import { PieChart, VerticalBarChart, SankyChart, StackChart } from "./Chart";
 
 export const StyledAntdCard = styled(AntCard)`
   margin: 1rem 0 5px 0;
-  background-color: #3e4a7d;
+  ${props => (props.nonebg ? "" : "background-color: #3e4a7d;")}
   color: white;
   border-width: 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
