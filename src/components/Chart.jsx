@@ -228,10 +228,16 @@ export const LineChart = ({ data, style, loading }) => {
     },
     xAxis: {
       type: "category",
-      data: []
+      data: [],
+      axisLine: {
+        lineStyle: {color: '#e0e0e0'}
+      },
     },
     yAxis: {
-      type: "value"
+      type: "value",
+      axisLine: {
+        lineStyle: {color: '#e0e0e0'}
+      },
     },
     series: []
   };
