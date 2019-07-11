@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
 import { Layout } from "antd";
+import { Link } from "react-router-dom";
 import { Container, Title } from "../components/Layout";
 import styled from "@emotion/styled";
 import { ReactComponent as OverviewIcon } from "../icons/tiles.svg";
@@ -10,7 +11,7 @@ import { ReactComponent as TimeIcon } from "../icons/time.svg";
 import { ReactComponent as GIcon } from "../icons/graph.svg";
 import { ReactComponent as MapIcon } from "../icons/map.svg";
 
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 const { Sider } = Layout;
 
 const MyButton = styled.div`
@@ -50,7 +51,8 @@ const Logo = () => {
   );
 };
 
-const Panal = () => {
+const Panal = props => {
+  console.log(props);
   return (
     <div
       css={css`
@@ -58,112 +60,123 @@ const Panal = () => {
         flex-direction: column;
       `}
     >
-      <a href="/">
-        <MyButton active={window.location.pathname === "/"}>
-          {" "}
-          <OverviewIcon
-            css={css`
-              width: 30px;
-              height: 30px;
-            `}
-          />
-          <div
-            css={css`
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              margin-left: 1rem;
-            `}
-          >
-            OVERVIEW
-          </div>
-        </MyButton>
-      </a>
-      <a href="/user">
-        <MyButton active={window.location.pathname === "/user"}>
-          <UserIcon
-            css={css`
-              width: 30px;
-              height: 30px;
-            `}
-          />
-          <div
-            css={css`
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              margin-left: 1rem;
-            `}
-          >
-            VISITORS
-          </div>
-        </MyButton>
-      </a>
-      <a href="/">
-        <MyButton>
-          <GenderIcon
-            css={css`
-              width: 30px;
-              height: 30px;
-            `}
-          />
-          <div
-            css={css`
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              margin-left: 1rem;
-            `}
-          >
-            GENDER
-          </div>
-        </MyButton>
-      </a>
-      <a href="/">
-        <MyButton>
-          <MapIcon
-            css={css`
-              width: 30px;
-              height: 30px;
-            `}
-          />
-          <div
-            css={css`
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              margin-left: 1rem;
-            `}
-          >
-            CUSTOMER JOURNEY
-          </div>
-        </MyButton>
-      </a>
-      <a href="/retention">
-        <MyButton active={window.location.pathname === "/retention"}>
-          <GIcon
-            css={css`
-              width: 30px;
-              height: 30px;
-            `}
-          />
-          <div
-            css={css`
-              display: flex;
-              flex-direction: column;
-              justify-content: center;
-              margin-left: 1rem;
-            `}
-          >
-            RETENTION
-          </div>
-        </MyButton>
-      </a>
+      <MyButton
+        active={window.location.pathname === "/"}
+        onClick={() => {
+          props.history.push("/");
+        }}
+      >
+        {" "}
+        <OverviewIcon
+          css={css`
+            width: 30px;
+            height: 30px;
+          `}
+        />
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 1rem;
+          `}
+        >
+          OVERVIEW
+        </div>
+      </MyButton>
+      <MyButton
+        active={window.location.pathname === "/user"}
+        onClick={() => {
+          props.history.push("/user");
+        }}
+      >
+        <UserIcon
+          css={css`
+            width: 30px;
+            height: 30px;
+          `}
+        />
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 1rem;
+          `}
+        >
+          VISITORS
+        </div>
+      </MyButton>
+      <MyButton>
+        <GenderIcon
+          css={css`
+            width: 30px;
+            height: 30px;
+          `}
+        />
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 1rem;
+          `}
+        >
+          GENDER
+        </div>
+      </MyButton>
+      <MyButton
+        onClick={() => {
+          props.history.push("/");
+        }}
+      >
+        <MapIcon
+          css={css`
+            width: 30px;
+            height: 30px;
+          `}
+        />
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 1rem;
+          `}
+        >
+          CUSTOMER JOURNEY
+        </div>
+      </MyButton>
+
+      <MyButton
+        active={window.location.pathname === "/retention"}
+        onClick={() => {
+          props.history.push("/retention");
+        }}
+      >
+        <GIcon
+          css={css`
+            width: 30px;
+            height: 30px;
+          `}
+        />
+        <div
+          css={css`
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 1rem;
+          `}
+        >
+          RETENTION
+        </div>
+      </MyButton>
     </div>
   );
 };
 
-const Sidebar = () => {
+const Sidebar = props => {
+  console.log(props);
   return (
     <Sider
       width={300}
@@ -172,9 +185,9 @@ const Sidebar = () => {
       `}
     >
       <Logo />
-      <Panal />
+      <Panal {...props} />
     </Sider>
   );
 };
 
-export default Sidebar;
+export default withRouter(Sidebar);

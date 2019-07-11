@@ -205,9 +205,9 @@ const Overview = () => {
       <Container margin="0" padding="0">
         <Flex>
           <Card
-            title="VISITORS"
+            title="TOTAL VISITORS"
             style={{
-              width: "20%",
+              width: "25%",
               minHeight: "300px"
             }}
           >
@@ -223,7 +223,7 @@ const Overview = () => {
             data={gender}
             mountFunc={fetchGender}
             cardStyle={{
-              width: "40%",
+              width: "30%",
               minHeight: "300px"
             }}
             chartStyle={{
@@ -235,7 +235,7 @@ const Overview = () => {
             title="DURATION"
             data={[40, 100, 50, 10, 40, 100, 50]}
             cardStyle={{
-              width: "35%",
+              width: "45%",
               minHeight: "350px"
             }}
             chartStyle={{

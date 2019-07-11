@@ -21,20 +21,20 @@ const App = () => {
         background-image: linear-gradient(180deg, #303f65 0%, #121830 61.46%);
       `}
     >
-      <Layout>
-        <Sidebar />
-        <Layout
-          css={css`
-            background-image: linear-gradient(#303f65, #121830);
-          `}
-        >
-          <Router>
+      <Router>
+        <Layout>
+          <Sidebar />
+          <Layout
+            css={css`
+              background-image: linear-gradient(#303f65, #121830);
+            `}
+          >
             <Route path="/" exact component={Overview} />
             <Route path="/user" exact component={User} />
             <Route path="/retention" exact component={Retention} />
-          </Router>
+          </Layout>
         </Layout>
-      </Layout>
+      </Router>
     </Container>
   );
 };
