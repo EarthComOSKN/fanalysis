@@ -3,7 +3,7 @@ import { css, jsx } from "@emotion/core";
 import { Layout } from "antd";
 import { Container, Title } from "../components/Layout";
 import styled from "@emotion/styled";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 const { Sider } = Layout;
 
 const MyButton = styled.div`
@@ -19,10 +19,10 @@ const MyButton = styled.div`
   padding: 1rem 0 1rem 3.5rem;
   font-size: 1rem;
   cursor: pointer;
-  ${props => props.active ? 'background-color: rgba(122, 80, 175, 0.29);' : ''}
+  ${props => (props.active ? "background-color: #1984FC;" : "")}
 
   &:hover {
-    background-color: rgba(122, 80, 175, 0.29);
+    background-color: #1984fc;
   }
 `;
 
@@ -35,7 +35,7 @@ const Logo = () => {
           color: white;
         `}
       >
-        FANALYSIS
+        FANALYSIS.
       </Title>
     </Container>
   );
@@ -49,35 +49,27 @@ const Panal = () => {
         flex-direction: column;
       `}
     >
-      <a href='/'>
-        <MyButton active={window.location.pathname === '/'}>
-          OVERVIEWS
-        </MyButton>
+      <a href="/">
+        <MyButton active={window.location.pathname === "/"}>OVERVIEWS</MyButton>
       </a>
-      <a href='/user'>
-        <MyButton active={window.location.pathname === '/user'}>
+      <a href="/user">
+        <MyButton active={window.location.pathname === "/user"}>
           VISITORS
         </MyButton>
       </a>
-      <a href='/'>
-        <MyButton>
-          GENDER
-        </MyButton>
+      <a href="/">
+        <MyButton>GENDER</MyButton>
       </a>
-      <a href='/'>
-        <MyButton>
-          DURATION
-        </MyButton>
+      <a href="/">
+        <MyButton>DURATION</MyButton>
       </a>
-      <a href='/retention'>
-        <MyButton active={window.location.pathname === '/retention'}>
+      <a href="/retention">
+        <MyButton active={window.location.pathname === "/retention"}>
           RETENTION
         </MyButton>
       </a>
-      <a href='/'>
-      <MyButton>
-        CUSTOMER JOURNEY
-      </MyButton>
+      <a href="/">
+        <MyButton>CUSTOMER JOURNEY</MyButton>
       </a>
     </div>
   );
@@ -88,7 +80,7 @@ const Sidebar = () => {
     <Sider
       width={300}
       css={css`
-        background-color: #211634;
+        background-color: #121831;
       `}
     >
       <Logo />
