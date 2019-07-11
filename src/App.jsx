@@ -9,6 +9,7 @@ import Sidebar from "./components/Sidebar";
 import Overview from "./pages/Overview";
 import User from "./pages/User";
 import Retention from "./pages/Retention";
+import Gender from "./pages/Gender";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
             <Route path="/" exact component={Overview} />
             <Route path="/user" exact component={User} />
             <Route path="/retention" exact component={Retention} />
+            <Route path="/gender" exact component={Gender} />
           </Layout>
         </Layout>
       </Router>

@@ -58,7 +58,7 @@ const Header = () => {
                 color: #7681a4;
               `}
             >
-              MOST ACTIVE USER
+              MOST ACTIVE USERS
             </div>
             <div
               css={css`
@@ -102,7 +102,7 @@ const Header = () => {
                 color: #7681a4;
               `}
             >
-              MOST ACTIVE USER
+              MOST ACTIVE DAY
             </div>
             <div
               css={css`
@@ -145,7 +145,7 @@ const Header = () => {
                 color: #7681a4;
               `}
             >
-              MOST ACTIVE USER
+              LEAST ACTIVE DAY
             </div>
             <div
               css={css`
@@ -194,7 +194,7 @@ const Overview = () => {
   return (
     <Container
       margin="0"
-      padding="2rem"
+      padding="1rem"
       css={css`
         width: 100%;
         max-width: 1200px;

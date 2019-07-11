@@ -110,18 +110,6 @@ export const HeatMap = () => {
       <Container>
         <img src="https://dummyimage.com/600x400/000/fff" alt="" />
       </Container>
-      <div>
-        <Slider
-          marks={marks}
-          step={10}
-          defaultValue={37}
-          css={css`
-            .ant-slider-mark-text {
-              color: white;
-            }
-          `}
-        />
-      </div>
     </Container>
   );
 };

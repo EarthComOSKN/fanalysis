@@ -22,7 +22,7 @@ export const Flex = styled.div`
 
 export const Title = styled.div`
   color: black;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 800;
 `;
 

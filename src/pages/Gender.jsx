@@ -10,7 +10,7 @@ import Timeline from "../components/Timeline";
 import CountUp from "react-countup";
 import { Card } from "../components/Card";
 
-const User = () => {
+const Gender = () => {
   const [activeTime, setActiveTime] = useState("10:00");
   return (
     <Container
@@ -79,4 +79,4 @@ const User = () => {
   );
 };
 
-export default User;
+export default Gender;
