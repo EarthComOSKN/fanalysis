@@ -224,11 +224,7 @@ const Overview = () => {
             data={gender}
             mountFunc={fetchGender}
             cardStyle={{
-<<<<<<< HEAD
               width: "30%",
-=======
-              width: "35%",
->>>>>>> f547ea4aba4c1691fd201a03bf56c7ff70d47dd3
               minHeight: "300px"
             }}
             chartStyle={{
@@ -240,11 +236,7 @@ const Overview = () => {
             title="DURATION"
             data={[40, 100, 50, 10, 40, 100, 50]}
             cardStyle={{
-<<<<<<< HEAD
               width: "45%",
-=======
-              width: "40%",
->>>>>>> f547ea4aba4c1691fd201a03bf56c7ff70d47dd3
               minHeight: "350px"
             }}
             chartStyle={{
