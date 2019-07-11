@@ -2,7 +2,6 @@
 import { css, jsx } from '@emotion/core'
 import ReactEcharts from 'echarts-for-react'
 
-import Navbar from '../components/Navbar'
 import { Container } from '../components/Layout'
 
 import data from '../mock/data'
@@ -63,29 +62,26 @@ const option = {
 
 const Overview = () => {
   return (
-    <div
+    <Container
+      margin='0'
+      padding='0'
       css={css`
-        height: 100vh;
+        height: 100%;
       `}
+      id='overview'
     >
-      <Navbar />
-      <Container row>
+      <Container
+        margin='0'
+        padding='0'
+        row
+        wrap
+      >
         <div
           css={css`
-            flex-direction: column;
-            flex-grow: 0.2;
-            background-color: green;
-          `}
-        >
-          filter
-        </div>
-        <div
-          css={css`
-            flex-direction: column;
-            flex-grow: 0.8;
-            height: 90vh;
-            background-color: gray;
+            display: flex;
+            flex: 1;
             justify-content: center;
+            background-color: gray;
           `}
         >
           <ReactEcharts
@@ -94,7 +90,7 @@ const Overview = () => {
           />
         </div>
       </Container>
-    </div>
+    </Container>
   )
 }
 
