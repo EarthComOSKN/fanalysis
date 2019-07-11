@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core'
 import { useState } from 'react'
-
 import axios from 'axios'
+import CountUp from 'react-countup'
 
 import { Container } from '../components/Layout'
-import { PieCard, SankyCard, StackBarCard } from '../components/Card'
+import { Card, PieCard, VerticalBarCard, SankyCard, StackBarCard } from '../components/Card'
 
 const Overview = () => {
   const [gender, setGender] = useState([])
@@ -42,12 +42,39 @@ const Overview = () => {
         padding='0'
         row
         wrap
+        justify='space-between'
       >
+        <Card
+          style={{
+            width: '40%',
+            minHeight: '300px',
+          }}
+        >
+          <CountUp
+            end={45678}
+            css={css`
+              font-size: 2rem;
+            `}
+          />
+        </Card>
         <PieCard
           data={gender}
           mountFunc={fetchGender}
           cardStyle={{
             width: '20%',
+            minHeight: '300px'
+          }}
+          chartStyle={{
+            height: '100%',
+            width: '100%'
+          }}
+        />
+        <VerticalBarCard
+          data={[
+            40, 100, 50, 10
+          ]}
+          cardStyle={{
+            width: '40%',
             minHeight: '300px'
           }}
           chartStyle={{

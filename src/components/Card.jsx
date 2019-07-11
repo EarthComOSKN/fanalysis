@@ -4,12 +4,18 @@ import styled from '@emotion/styled'
 import { useState, useEffect } from 'react'
 import { Card as AntCard } from 'antd'
 
-import { PieChart, SankyChart, StackChart } from './Chart'
+import { PieChart, VerticalBarChart, SankyChart, StackChart } from './Chart'
 
-const Card = styled(AntCard)`
+export const Card = styled(AntCard)`
+  margin: 1rem 0 5px 0;
+
   & .ant-card-body {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 `
 
@@ -69,6 +75,27 @@ export const StackBarCard = ({ data, mountFunc, cardStyle, chartStyle }) => {
       style={cardStyle}
     >
       <StackChart
+        data={data}
+        style={chartStyle}
+        loading={loading}
+      />
+    </Card>
+  )
+}
+
+export const VerticalBarCard = ({ data, mountFunc, cardStyle, chartStyle }) => {
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    // mountFunc()
+    setLoading(false)
+  }, [mountFunc])
+
+  return (
+    <Card
+      style={cardStyle}
+    >
+      <VerticalBarChart
         data={data}
         style={chartStyle}
         loading={loading}

@@ -4,7 +4,7 @@ import ReactEcharts from 'echarts-for-react'
 
 import { Container } from './Layout'
 
-export const ChartBox = ({ children }) => {
+export const ChartBox = ({ title, children }) => {
   return (
     <Container
       fullWidth
@@ -172,7 +172,37 @@ export const StackChart = ({ data, style, loading}) => {
       style={style}
       option={option}
       showLoading={loading}
-    >{option}</ReactEcharts>
+    />
+  )
+}
+
+export const VerticalBarChart = ({ data, style, loading}) => {
+  const option = {
+    tooltip : {
+      trigger: 'axis',
+      axisPointer : {
+        type : 'shadow'
+      }
+    },
+    xAxis: {
+      type: 'category',
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: [{
+      name: 'data',
+      type: 'bar',
+      data
+    }]
+  }
+
+  return (
+    <ReactEcharts
+      style={style}
+      option={option}
+      showLoading={loading}
+    />
   )
 }
 
