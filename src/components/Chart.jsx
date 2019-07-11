@@ -224,14 +224,12 @@ export const LineChart = ({ data, style, loading}) => {
     series: []
   }
 
-  data.map(d => {
-    d.data.map((dd, i) => {
-      option.xAxis.data.push(`week ${i + 1}`)
-    })
-    option.series.push({
-      type: 'line',
-      data: d.data
-    })
+  data.data.map((dd, i) => {
+    option.xAxis.data.push(`week ${i + 1}`)
+  })
+  option.series.push({
+    type: 'line',
+    data: data.data
   })
 
   return (
