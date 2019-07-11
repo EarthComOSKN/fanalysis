@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 import ReactEcharts from 'echarts-for-react'
-import styled from "@emotion/styled";
+
+import { Container } from './Layout'
 
 export const ChartBox = ({ children }) => {
   return (
@@ -118,6 +119,62 @@ export const PieChart = ({ data, style, loading }) => {
       option={option}
       showLoading={loading}
     />
+  )
+}
+
+export const SankyChart = ({ data, link, style, loading }) => {
+  const option = {
+    series: {
+      name: 'sankey',
+      type: 'sankey',
+      layout:'none',
+      focusNodeAdjacency: 'allEdges',
+      data,
+      links: link
+    }
+  }
+
+  return (
+    <ReactEcharts
+      style={style}
+      option={option}
+      showLoading={loading}
+    />
+  )
+}
+
+export const StackChart = ({ data, style, loading}) => {
+  const option = {
+    tooltip : {
+      trigger: 'axis',
+      axisPointer : {
+        type : 'shadow'
+      }
+    },
+    xAxis: {
+      type: 'category',
+    },
+    yAxis: {
+      type: 'value'
+    },
+    series: []
+  }
+
+  data.map(d => 
+    option.series.push({
+      name: d.name,
+      type: 'bar',
+      stack: 'group',
+      data: d.data
+    })
+  )
+
+  return (
+    <ReactEcharts
+      style={style}
+      option={option}
+      showLoading={loading}
+    >{option}</ReactEcharts>
   )
 }
 
