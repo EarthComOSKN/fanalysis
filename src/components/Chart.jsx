@@ -132,12 +132,19 @@ export const StackChart = ({ data, style, loading }) => {
       data: ['week1', 'week2', 'week3', 'week4'],
       axisLine: {
         lineStyle: { color: "#e0e0e0" }
-      }
+      },
+      name: 'Weeks'
     },
     yAxis: {
       type: "value",
       axisLine: {
         lineStyle: { color: "#e0e0e0" }
+      },
+      name: 'Total'
+    },
+    legend: {
+      textStyle: {
+        color: '#fff'
       }
     },
     series: []
@@ -271,10 +278,12 @@ export const GenderTimeChart = () => {
     },
     xAxis: {
       type: "category",
-      data: ["10:00", "11:00", "12:00", "13:00", '14:00', '15:00', '16:00', '17:00', '18:00']
+      data: ["10:00", "11:00", "12:00", "13:00", '14:00', '15:00', '16:00', '17:00', '18:00'],
+      name: 'Time'
     },
     yAxis: {
-      type: "value"
+      type: "value",
+      name: 'Total'
     },
     series: [
       {
@@ -317,8 +326,7 @@ export const DurationChart = () => {
     tooltip: {
       trigger: "axis",
       axisPointer: {
-        // 坐标轴指示器，坐标轴触发有效
-        type: "shadow" // 默认为直线，可选为：'line' | 'shadow'
+        type: "shadow"
       }
     },
     grid: {
@@ -369,13 +377,15 @@ export const VerticalBarChart = ({ data, style, loading }) => {
       data: ['20', '40', '60', '80', '100', '120', '>120'],
       axisLine: {
         lineStyle: { color: "#e0e0e0" }
-      }
+      },
+      name: 'minute'
     },
     yAxis: {
       type: "value",
       axisLine: {
         lineStyle: { color: "#e0e0e0" }
-      }
+      },
+      name: 'total'
     },
     series: [
       {
@@ -409,13 +419,15 @@ export const LineChart = ({ data, style, loading }) => {
       data: [],
       axisLine: {
         lineStyle: { color: "#e0e0e0" }
-      }
+      },
+      name: 'number of week'
     },
     yAxis: {
       type: "value",
       axisLine: {
         lineStyle: { color: "#e0e0e0" }
-      }
+      },
+      name: 'total customers'
     },
     series: []
   };
