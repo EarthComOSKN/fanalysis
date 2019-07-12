@@ -129,6 +129,7 @@ export const StackChart = ({ data, style, loading }) => {
     },
     xAxis: {
       type: "category",
+      data: ['week1', 'week2', 'week3', 'week4'],
       axisLine: {
         lineStyle: { color: "#e0e0e0" }
       }
@@ -376,6 +377,7 @@ export const VerticalBarChart = ({ data, style, loading }) => {
     },
     xAxis: {
       type: "category",
+      data: ['20', '40', '60', '80', '100', '120', '>120'],
       axisLine: {
         lineStyle: { color: "#e0e0e0" }
       }

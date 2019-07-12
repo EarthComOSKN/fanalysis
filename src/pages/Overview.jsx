@@ -3,7 +3,6 @@ import { css, jsx } from "@emotion/core";
 import { useState } from "react";
 import axios from "axios";
 import CountUp from "react-countup";
-import { ReactComponent as OverviewIcon } from "../icons/tiles.svg";
 import { ReactComponent as UserIcon } from "../icons/user.svg";
 import { ReactComponent as CarlendarIcon } from "../icons/calendar.svg";
 import { Container, Flex } from "../components/Layout";
@@ -25,18 +24,6 @@ const Col = styled.div`
   flex-grow: ${props => props.grow || 1};
   height: 100px;
   ${props => (props.divide ? `border-right: 1px solid white;` : "")}
-  justify-content: center;
-`;
-
-const Row = styled.div`
-  display: flex;
-  flex-grow: ${props => props.grow || 1};
-  justify-content: center;
-`;
-
-const Section = styled.div`
-  display: flex;
-  flex-direction: column;
   justify-content: center;
 `;
 
@@ -202,7 +189,7 @@ const Overview = () => {
         margin: 0 auto;
       `}
     >
-      <Title>CUSTOMER-JOURNY</Title>
+      <Title>OVERVIEW</Title>
       <Header />
       <Card
         nonebg
