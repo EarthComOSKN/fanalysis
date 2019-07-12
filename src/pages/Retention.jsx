@@ -7,6 +7,7 @@ import { Select } from 'antd'
 import { Container } from '../components/Layout'
 import { LineChart } from '../components/Chart'
 import { Card } from '../components/Card'
+import { Title } from "../components/Title"
 
 const { Option } = Select
 
@@ -44,6 +45,7 @@ const Retention = () => {
         height: 100%;
       `}
     >
+      <Title>RENTENTION</Title>
       <Container
         margin='0'
         padding='0'
