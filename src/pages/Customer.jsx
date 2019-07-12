@@ -2,6 +2,8 @@
 import { css, jsx } from "@emotion/core";
 import { useState } from "react";
 import axios from "axios";
+import ReactEcharts from "echarts-for-react";
+import echarts from "echarts";
 import { ReactComponent as OverviewIcon } from "../icons/tiles.svg";
 import { ReactComponent as UserIcon } from "../icons/user.svg";
 import { ReactComponent as CarlendarIcon } from "../icons/calendar.svg";
@@ -203,16 +205,6 @@ const Customer = () => {
       `}
     >
       <Title>CUSTOMER JOURNEY</Title>
-      <Card
-        nonebg
-        title="VISITORS"
-        style={{
-          width: "100%",
-          minHeight: "600px"
-        }}
-      >
-        <SimpleLineChart />
-      </Card>
       <SankyCard
         cardStyle={{
           width: "100%",
@@ -313,7 +305,7 @@ const Customer = () => {
       />
       <Card
         nonebg
-        title="VISITORS"
+        title="Transaction of customers"
         style={{
           width: "100%",
           minHeight: "600px"
@@ -323,13 +315,55 @@ const Customer = () => {
       </Card>
       <Card
         nonebg
-        title="VISITORS"
+        title="Transaction of customers"
         style={{
           width: "100%",
           minHeight: "600px"
         }}
       >
-        <DurationChart />
+        <ReactEcharts
+          style={{
+            width: '100%',
+            height: '300px'
+          }}
+          option={{
+            tooltip: {
+              trigger: "axis",
+              axisPointer: {
+                type: "shadow"
+              }
+            },
+            series: [{
+              type:'pie',
+              radius: ['50%', '70%'],
+              avoidLabelOverlap: false,
+              label: {
+                  normal: {
+                      show: false,
+                      position: 'center'
+                  },
+                  emphasis: {
+                      show: true,
+                      textStyle: {
+                          fontSize: '20',
+                          // fontWeight: 'bold'
+                      }
+                  }
+              },
+              labelLine: {
+                  normal: {
+                      show: false
+                  }
+              },
+              data:[
+                {value:335, name:'1 คน'},
+                {value:310, name:'2 คน'},
+                {value:234, name:'มากกว่า 3 คน'},
+              ]
+            }]
+          }}
+          theme="my_theme"
+        />
       </Card>
     </Container>
   );
