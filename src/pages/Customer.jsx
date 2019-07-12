@@ -375,9 +375,62 @@ const Customer = () => {
               data:[
                 {value:335, name:'1 คน'},
                 {value:310, name:'2 คน'},
-                {value:234, name:'มากกว่า 3 คน'},
+                {value:500, name:'3 คนขึ้นไป(เพื่อน)'},
+                {value:200, name:'3 คนขึ้นไป(ครอบครัว)'},
               ]
             }]
+          }}
+          theme="my_theme"
+        />
+      </Card>
+      <Card
+        nonebg
+        title="Decision of customers"
+        style={{
+          width: "100%",
+          minHeight: "600px"
+        }}
+      >
+        <ReactEcharts
+          style={{
+            width: '100%',
+            height: '600px'
+          }}
+          option={{
+            tooltip : {
+              trigger: 'axis',
+              axisPointer : {
+                  type : 'shadow'
+              }
+          },
+            xAxis:  {
+              type: 'value',
+              name: 'เปอร์เซ็น (%)',
+              axisLine: {
+                lineStyle: { color: "#e0e0e0" }
+              },
+            },
+            yAxis: {
+              type: 'category',
+              data: ['1 คน','2 คน','เพื่อน','ครอบครัว'],
+              axisLine: {
+                lineStyle: { color: "#e0e0e0" }
+              },
+            },
+            series: [
+              {
+                name: 'buy',
+                type:'bar',
+                stack: 'group',
+                data:[80, 40, 60, 90]
+              },
+              {
+                name: 'not buy',
+                type:'bar',
+                stack: 'group',
+                data:[20, 60, 40, 10]
+              },
+            ]
           }}
           theme="my_theme"
         />
