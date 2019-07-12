@@ -279,51 +279,51 @@ const User = () => {
                     ]
                   },
                   {
-                      name:'age',
-                      type:'pie',
-                      radius: ['40%', '55%'],
-                      label: {
-                        normal: {
-                          formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
-                          backgroundColor: '#eee',
-                          borderColor: '#aaa',
-                          borderWidth: 1,
-                          borderRadius: 4,
-                          rich: {
-                            a: {
-                              color: '#999',
-                              lineHeight: 22,
-                              align: 'center'
-                            },
-                            hr: {
-                              borderColor: '#aaa',
-                              width: '100%',
-                              borderWidth: 0.5,
-                              height: 0
-                            },
-                            b: {
-                              fontSize: 16,
-                              lineHeight: 33
-                            },
-                            per: {
-                              color: '#eee',
-                              backgroundColor: '#334455',
-                              padding: [2, 4],
-                              borderRadius: 2
-                            }
+                    name:'age',
+                    type:'pie',
+                    radius: ['40%', '55%'],
+                    label: {
+                      normal: {
+                        formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+                        backgroundColor: '#eee',
+                        borderColor: '#aaa',
+                        borderWidth: 1,
+                        borderRadius: 4,
+                        rich: {
+                          a: {
+                            color: '#999',
+                            lineHeight: 22,
+                            align: 'center'
+                          },
+                          hr: {
+                            borderColor: '#aaa',
+                            width: '100%',
+                            borderWidth: 0.5,
+                            height: 0
+                          },
+                          b: {
+                            fontSize: 16,
+                            lineHeight: 33
+                          },
+                          per: {
+                            color: '#eee',
+                            backgroundColor: '#334455',
+                            padding: [2, 4],
+                            borderRadius: 2
                           }
                         }
-                      },
-                      data:[
-                        {value:21, name:'7-14'},
-                        {value:13, name:'15-20'},
-                        {value:4, name:'41-60'},
-                        {value:37, name:'60+'},
-                        {value:14, name:'7-14'},
-                        {value:12, name:'15-20'},
-                        {value:28, name:'41-60'},
-                        {value:15, name:'60+'}
-                      ]
+                      }
+                    },
+                    data:[
+                      {value:21, name:'7-14'},
+                      {value:13, name:'15-20'},
+                      {value:4, name:'41-60'},
+                      {value:37, name:'60+'},
+                      {value:14, name:'7-14'},
+                      {value:12, name:'15-20'},
+                      {value:28, name:'41-60'},
+                      {value:15, name:'60+'}
+                    ]
                   }
                 ]
               }}

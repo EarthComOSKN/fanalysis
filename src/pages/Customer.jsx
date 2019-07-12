@@ -324,13 +324,16 @@ const Customer = () => {
         <ReactEcharts
           style={{
             width: '100%',
-            height: '300px'
+            height: '600px'
           }}
           option={{
             tooltip: {
-              trigger: "axis",
-              axisPointer: {
-                type: "shadow"
+              show: true,
+              formatter: params => {
+                let res = "";
+                res += `Value : ${params.value.toLocaleString()}</br>`;
+                res += `Percent : ${params.percent}%`;
+                return res;
               }
             },
             series: [{
@@ -338,22 +341,36 @@ const Customer = () => {
               radius: ['50%', '70%'],
               avoidLabelOverlap: false,
               label: {
-                  normal: {
-                      show: false,
-                      position: 'center'
-                  },
-                  emphasis: {
-                      show: true,
-                      textStyle: {
-                          fontSize: '20',
-                          // fontWeight: 'bold'
-                      }
+                normal: {
+                  formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+                  backgroundColor: '#eee',
+                  borderColor: '#aaa',
+                  borderWidth: 1,
+                  borderRadius: 4,
+                  rich: {
+                    a: {
+                      color: '#999',
+                      lineHeight: 22,
+                      align: 'center'
+                    },
+                    hr: {
+                      borderColor: '#aaa',
+                      width: '100%',
+                      borderWidth: 0.5,
+                      height: 0
+                    },
+                    b: {
+                      fontSize: 16,
+                      lineHeight: 33
+                    },
+                    per: {
+                      color: '#eee',
+                      backgroundColor: '#334455',
+                      padding: [2, 4],
+                      borderRadius: 2
+                    }
                   }
-              },
-              labelLine: {
-                  normal: {
-                      show: false
-                  }
+                }
               },
               data:[
                 {value:335, name:'1 คน'},
