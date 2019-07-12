@@ -2,7 +2,6 @@
 import { css, jsx } from "@emotion/core";
 import { useState } from "react";
 import axios from "axios";
-import CountUp from "react-countup";
 import { ReactComponent as OverviewIcon } from "../icons/tiles.svg";
 import { ReactComponent as UserIcon } from "../icons/user.svg";
 import { ReactComponent as CarlendarIcon } from "../icons/calendar.svg";
@@ -10,10 +9,7 @@ import { Container, Flex } from "../components/Layout";
 
 import {
   Card,
-  PieCard,
-  VerticalBarCard,
   SankyCard,
-  StackBarCard
 } from "../components/Card";
 import { Title } from "../components/Title";
 import styled from "@emotion/styled";
@@ -228,16 +224,23 @@ const Customer = () => {
           { name: "entrance1" },
           { name: "entrance2" },
           { name: "men" },
+          { name: 'kid & baby'},
           { name: "women" },
           { name: "cashier" },
           { name: "exit" },
-          { name: "fitting room" }
+          { name: "fitting room" },
         ]}
         link={[
           {
             source: "entrance1",
             target: "women",
             value: 5,
+            lineStyle: { color: "#e0e0e0" }
+          },
+          {
+            source: "entrance1",
+            target: "kid & baby",
+            value: 2,
             lineStyle: { color: "#e0e0e0" }
           },
           {
@@ -253,8 +256,20 @@ const Customer = () => {
             lineStyle: { color: "#e0e0e0" }
           },
           {
+            source: "entrance2",
+            target: "kid & baby",
+            value: 3,
+            lineStyle: { color: "#e0e0e0" }
+          },
+          {
             source: "women",
             target: "cashier",
+            value: 3,
+            lineStyle: { color: "#e0e0e0" }
+          },
+          {
+            source: "kid & baby",
+            target: "fitting room",
             value: 3,
             lineStyle: { color: "#e0e0e0" }
           },
