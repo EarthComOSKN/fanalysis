@@ -129,7 +129,7 @@ export const StackChart = ({ data, style, loading }) => {
     },
     xAxis: {
       type: "category",
-      data: ['week1', 'week2', 'week3', 'week4'],
+      data: ["week1", "week2", "week3", "week4"],
       axisLine: {
         lineStyle: { color: "#e0e0e0" }
       }
@@ -253,9 +253,9 @@ export const GenderTimeChart = () => {
       trigger: "axis"
     },
     legend: {
-      data: ["old", "new", 'transaction'],
+      data: ["old", "new", "transaction"],
       textStyle: {
-        color: '#fff'
+        color: "#fff"
       }
     },
     grid: {
@@ -271,7 +271,8 @@ export const GenderTimeChart = () => {
     },
     xAxis: {
       type: "category",
-      data: ["10:00", "11:00", "12:00", "13:00", '14:00', '15:00', '16:00', '17:00', '18:00']
+      data: ["20", "40", "60", "80", "100", "120", "140", "160", "180"],
+      name: "MIN"
     },
     yAxis: {
       type: "value"
@@ -280,22 +281,52 @@ export const GenderTimeChart = () => {
       {
         name: "old",
         type: "bar",
-        stack: 'gender',
+
         data: [20, 100, 80, 10, 50, 70, 120, 40, 130]
       },
       {
         name: "new",
         type: "bar",
-        stack: "gender",
+
         data: [5, 20, 15, 50, 120, 100, 90, 75, 30]
-      },
+      }
+      // {
+      //   name: "transaction",
+      //   type: "line",
+      //   data: [20, 95, 70, 30, 100, 105, 80, 50, 10],
+      //   itemStyle: {
+      //     color: "yellow"
+      //   }
+      // }
+    ]
+  };
+  return (
+    <ReactEcharts
+      option={option}
+      style={{ width: "100%", height: "600px" }}
+      theme="my_theme"
+    />
+  );
+};
+
+export const ConvertionChart = () => {
+  const option = {
+    textStyle: { color: "white" },
+    xAxis: {
+      type: "category",
+      boundaryGap: false,
+      data: ["20", "40", "60", "80", "100", "120", "140", "160", "180"],
+      name: "MIN"
+    },
+    yAxis: {
+      type: "value"
+    },
+    series: [
       {
-        name: 'transaction',
-        type: 'line',
-        data: [20, 95, 70, 30, 100, 105, 80, 50, 120],
-        itemStyle: {
-          color: 'yellow'
-        }
+        data: [29, 90, 15, 32, 53, 42, 23, 10, 5, 13],
+        type: "line",
+        areaStyle: {},
+        smooth: true
       }
     ]
   };
@@ -348,7 +379,7 @@ export const DurationChart = () => {
         name: "Avg Time Spend",
         type: "bar",
         barWidth: "60%",
-        data: [69, 220, 160, 434, 120],
+        data: [69, 220, 160, 434, 120]
       }
     ]
   };
@@ -366,7 +397,7 @@ export const VerticalBarChart = ({ data, style, loading }) => {
     },
     xAxis: {
       type: "category",
-      data: ['20', '40', '60', '80', '100', '120', '>120'],
+      data: ["20", "40", "60", "80", "100", "120", ">120"],
       axisLine: {
         lineStyle: { color: "#e0e0e0" }
       }

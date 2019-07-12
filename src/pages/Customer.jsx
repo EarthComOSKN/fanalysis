@@ -9,16 +9,14 @@ import { ReactComponent as UserIcon } from "../icons/user.svg";
 import { ReactComponent as CarlendarIcon } from "../icons/calendar.svg";
 import { Container, Flex } from "../components/Layout";
 
-import {
-  Card,
-  SankyCard,
-} from "../components/Card";
+import { Card, SankyCard } from "../components/Card";
 import { Title } from "../components/Title";
 import styled from "@emotion/styled";
 import {
   SimpleLineChart,
   GenderTimeChart,
-  DurationChart
+  DurationChart,
+  ConvertionChart
 } from "../components/Chart";
 
 const Col = styled.div`
@@ -216,11 +214,11 @@ const Customer = () => {
           { name: "entrance1" },
           { name: "entrance2" },
           { name: "men" },
-          { name: 'kid & baby'},
+          { name: "kid & baby" },
           { name: "women" },
           { name: "cashier" },
           { name: "exit" },
-          { name: "fitting room" },
+          { name: "fitting room" }
         ]}
         link={[
           {
@@ -292,7 +290,7 @@ const Customer = () => {
           {
             source: "cashier",
             target: "exit",
-            value: 1,
+            value: 8,
             lineStyle: { color: "#e0e0e0" }
           },
           {
@@ -305,7 +303,7 @@ const Customer = () => {
       />
       <Card
         nonebg
-        title="Transaction of customers"
+        title="Duration of customers"
         style={{
           width: "100%",
           minHeight: "600px"
@@ -315,7 +313,17 @@ const Customer = () => {
       </Card>
       <Card
         nonebg
-        title="Transaction of customers"
+        title="Conversion Rate"
+        style={{
+          width: "100%",
+          minHeight: "600px"
+        }}
+      >
+        <ConvertionChart />
+      </Card>
+      <Card
+        nonebg
+        title="Group of customers"
         style={{
           width: "100%",
           minHeight: "600px"
@@ -323,8 +331,8 @@ const Customer = () => {
       >
         <ReactEcharts
           style={{
-            width: '100%',
-            height: '600px'
+            width: "100%",
+            height: "600px"
           }}
           option={{
             tooltip: {
@@ -336,48 +344,51 @@ const Customer = () => {
                 return res;
               }
             },
-            series: [{
-              type:'pie',
-              radius: ['50%', '70%'],
-              avoidLabelOverlap: false,
-              label: {
-                normal: {
-                  formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
-                  backgroundColor: '#eee',
-                  borderColor: '#aaa',
-                  borderWidth: 1,
-                  borderRadius: 4,
-                  rich: {
-                    a: {
-                      color: '#999',
-                      lineHeight: 22,
-                      align: 'center'
-                    },
-                    hr: {
-                      borderColor: '#aaa',
-                      width: '100%',
-                      borderWidth: 0.5,
-                      height: 0
-                    },
-                    b: {
-                      fontSize: 16,
-                      lineHeight: 33
-                    },
-                    per: {
-                      color: '#eee',
-                      backgroundColor: '#334455',
-                      padding: [2, 4],
-                      borderRadius: 2
+            series: [
+              {
+                type: "pie",
+                radius: ["50%", "70%"],
+                avoidLabelOverlap: false,
+                label: {
+                  normal: {
+                    formatter:
+                      "{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ",
+                    backgroundColor: "#eee",
+                    borderColor: "#aaa",
+                    borderWidth: 1,
+                    borderRadius: 4,
+                    rich: {
+                      a: {
+                        color: "#999",
+                        lineHeight: 22,
+                        align: "center"
+                      },
+                      hr: {
+                        borderColor: "#aaa",
+                        width: "100%",
+                        borderWidth: 0.5,
+                        height: 0
+                      },
+                      b: {
+                        fontSize: 16,
+                        lineHeight: 33
+                      },
+                      per: {
+                        color: "#eee",
+                        backgroundColor: "#334455",
+                        padding: [2, 4],
+                        borderRadius: 2
+                      }
                     }
                   }
-                }
-              },
-              data:[
-                {value:335, name:'1 คน'},
-                {value:310, name:'2 คน'},
-                {value:234, name:'มากกว่า 3 คน'},
-              ]
-            }]
+                },
+                data: [
+                  { value: 335, name: "1 คน" },
+                  { value: 310, name: "2 คน" },
+                  { value: 234, name: "มากกว่า 3 คน" }
+                ]
+              }
+            ]
           }}
           theme="my_theme"
         />

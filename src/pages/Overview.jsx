@@ -212,7 +212,7 @@ const Overview = () => {
             }}
           >
             <CountUp
-              end={45678}
+              end={2389}
               css={css`
                 font-size: 3rem;
               `}
