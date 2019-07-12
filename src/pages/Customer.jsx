@@ -207,16 +207,7 @@ const Customer = () => {
       `}
     >
       <Title>CUSTOMER JOURNEY</Title>
-      <Card
-        nonebg
-        title="VISITORS"
-        style={{
-          width: "100%",
-          minHeight: "600px"
-        }}
-      >
-        <SimpleLineChart />
-      </Card>
+
       <SankyCard
         cardStyle={{
           width: "100%",

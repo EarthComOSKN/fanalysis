@@ -43,7 +43,7 @@ const User = () => {
       padding="0.5rem"
       css={css`
         width: 100%;
-        max-width: 1200px;
+        max-width: 1500px;
         margin: 0 2rem;
       `}
     >
@@ -71,7 +71,7 @@ const User = () => {
             justify="center"
           >
             <Card
-              title="OLD USER"
+              title="OLD USERS"
               style={{
                 width: "50%",
                 minHeight: "200px"
@@ -85,7 +85,7 @@ const User = () => {
               />
             </Card>
             <Card
-              title="NEW USER"
+              title="NEW USERS"
               style={{
                 width: "50%",
                 minHeight: "200px"
@@ -111,7 +111,7 @@ const User = () => {
                 `}
               >
                 {" "}
-                <Circle color="green" />
+                <Circle color="rgb(166,165,40)" />
                 <div>Men New User</div>
               </div>
               <div
@@ -124,7 +124,7 @@ const User = () => {
                 `}
               >
                 {" "}
-                <Circle color="green" />
+                <Circle color="rgb(160,60,50)" />
                 <div>Women New User</div>
               </div>
               <div
@@ -137,7 +137,7 @@ const User = () => {
                 `}
               >
                 {" "}
-                <Circle color="green" />
+                <Circle color="rgb(53,123,42)" />
                 <div>Men Old User</div>
               </div>
               <div
@@ -150,7 +150,7 @@ const User = () => {
                 `}
               >
                 {" "}
-                <Circle color="green" />
+                <Circle color="rgb(70,60,112)" />
                 <div>Women Old User</div>
               </div>
             </Container>

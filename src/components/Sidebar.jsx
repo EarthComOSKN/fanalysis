@@ -107,29 +107,7 @@ const Panal = props => {
           VISITORS
         </div>
       </MyButton>
-      <MyButton
-        active={window.location.pathname === "/gender"}
-        onClick={() => {
-          props.history.push("/gender");
-        }}
-      >
-        <GenderIcon
-          css={css`
-            width: 30px;
-            height: 30px;
-          `}
-        />
-        <div
-          css={css`
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-left: 1rem;
-          `}
-        >
-          GENDER
-        </div>
-      </MyButton>
+
       <MyButton
         active={window.location.pathname === "/customer"}
         onClick={() => {
@@ -175,29 +153,6 @@ const Panal = props => {
           `}
         >
           RETENTION
-        </div>
-      </MyButton>
-      <MyButton
-        active={window.location.pathname === "/duration"}
-        onClick={() => {
-          props.history.push("/duration");
-        }}
-      >
-        <TimeIcon
-          css={css`
-            width: 30px;
-            height: 30px;
-          `}
-        />
-        <div
-          css={css`
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-left: 1rem;
-          `}
-        >
-          DURATION
         </div>
       </MyButton>
     </div>
