@@ -2,8 +2,10 @@
 import { css, jsx } from "@emotion/core";
 import styled from "@emotion/styled";
 import { useState, useEffect } from "react";
+import ReactEcharts from "echarts-for-react";
+import echarts from "echarts";
 import { ChartBox, HeatMap } from "../components/Chart";
-import { Container } from "../components/Layout";
+import { Container, Flex } from "../components/Layout";
 import Filter from "../components/Filter";
 import { Title } from "../components/Title";
 import Timeline from "../components/Timeline";
@@ -157,6 +159,177 @@ const User = () => {
             <HeatMap num={num} />
           </Card>
         </div>
+      </Container>
+      <Container
+        margin='0'
+        padding='0'
+      >
+        <Flex>
+        <Card
+            title="TOTAL VISITORS"
+            style={{
+              width: "50%",
+              minHeight: "600px"
+            }}
+          >
+            <ReactEcharts
+              style={{
+                height: "100%",
+                width: "100%"
+              }}
+              option={{
+                tooltip: {
+                  trigger: "axis",
+                  axisPointer: {
+                    type: "shadow"
+                  }
+                },
+                legend: {
+                  data: ['7-14', '15-20', '41-60', '60+'],
+                  textStyle: {
+                    color: '#fff'
+                  }
+                },
+                xAxis: {
+                  type: "category",
+                  data: ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
+                  axisLine: {
+                    lineStyle: { color: "#e0e0e0" }
+                  }
+                },
+                yAxis: {
+                  type: "value",
+                  axisLine: {
+                    lineStyle: { color: "#e0e0e0" }
+                  }
+                },
+                series: [
+                  {
+                    name:'7-14',
+                    type:'bar',
+                    stack: 'group',
+                    data:[5, 2, 13, 4, 9, 11, 1, 5, 9, 2]
+                  },
+                  {
+                    name:'15-20',
+                    type:'bar',
+                    stack: 'group',
+                    data:[3, 8, 12, 4, 12, 3, 8, 3, 11, 6]
+                  },
+                  {
+                    name:'41-60',
+                    type:'bar',
+                    stack: 'group',
+                    data:[14, 1, 13, 1, 7, 7, 5, 2, 4, 6]
+                  },
+                  {
+                    name:'60+',
+                    type:'bar',
+                    stack: 'group',
+                    data:[2, 6, 7, 5, 1, 10, 0 ,8, 6, 9]
+                  },
+                ]
+              }}
+            />
+          </Card>
+          <Card
+            title="TOTAL VISITORS"
+            style={{
+              width: "50%",
+              minHeight: "600px"
+            }}
+          >
+            <ReactEcharts
+              style={{
+                height: "100%",
+                width: "100%"
+              }}
+              option={{
+                tooltip: {
+                  trigger: 'item',
+                  formatter: "{a} <br/>{b}: {c} ({d}%)"
+                },
+                legend: {
+                  orient: 'vertical',
+                  x: 'left',
+                  textStyle: {
+                    color: '#fff'
+                  }
+                },
+                series: [
+                  {
+                    name:'gender',
+                    type:'pie',
+                    selectedMode: 'single',
+                    radius: [0, '30%'],
+        
+                    label: {
+                      normal: {
+                        position: 'inner'
+                      }
+                    },
+                    labelLine: {
+                      normal: {
+                        show: false
+                      }
+                    },
+                    data:[
+                        {value:75, name:'men', selected:true},
+                        {value:69, name:'female'},
+                    ]
+                  },
+                  {
+                      name:'age',
+                      type:'pie',
+                      radius: ['40%', '55%'],
+                      label: {
+                        normal: {
+                          formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
+                          backgroundColor: '#eee',
+                          borderColor: '#aaa',
+                          borderWidth: 1,
+                          borderRadius: 4,
+                          rich: {
+                            a: {
+                              color: '#999',
+                              lineHeight: 22,
+                              align: 'center'
+                            },
+                            hr: {
+                              borderColor: '#aaa',
+                              width: '100%',
+                              borderWidth: 0.5,
+                              height: 0
+                            },
+                            b: {
+                              fontSize: 16,
+                              lineHeight: 33
+                            },
+                            per: {
+                              color: '#eee',
+                              backgroundColor: '#334455',
+                              padding: [2, 4],
+                              borderRadius: 2
+                            }
+                          }
+                        }
+                      },
+                      data:[
+                        {value:21, name:'7-14'},
+                        {value:13, name:'15-20'},
+                        {value:4, name:'41-60'},
+                        {value:37, name:'60+'},
+                        {value:14, name:'7-14'},
+                        {value:12, name:'15-20'},
+                        {value:28, name:'41-60'},
+                        {value:15, name:'60+'}
+                      ]
+                  }
+                ]
+              }}
+            />
+          </Card>
+        </Flex>
       </Container>
     </Container>
   );
