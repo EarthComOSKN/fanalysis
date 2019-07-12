@@ -95,7 +95,7 @@ const agerange = () => {
   return menu;
 };
 
-export const Filter = () => {
+export const Filter = ({ noreten }) => {
   const [dateMode, setDateMode] = useState(0);
   const viewby = () => {
     const menu = (
@@ -153,13 +153,17 @@ export const Filter = () => {
         >
           <DDBut title="Gender" menu={gender} />
         </span>
-        <span
-          css={css`
-            margin-left: 1rem;
-          `}
-        >
-          <DDBut title="View By" setDateMode={setDateMode} menu={viewby} />
-        </span>
+        {noreten ? (
+          <span />
+        ) : (
+          <span
+            css={css`
+              margin-left: 1rem;
+            `}
+          >
+            <DDBut title="View By" setDateMode={setDateMode} menu={viewby} />
+          </span>
+        )}
         <span
           css={css`
             margin-left: 1rem;
@@ -167,64 +171,68 @@ export const Filter = () => {
         >
           <DDBut title="Display" menu={display} />
         </span>
-        <span
-          css={css`
-            margin-left: 1rem;
-          `}
-        >
-          {dateMode === 0 ? (
-            <RangePicker
-              onChange={onChange}
-              css={css`
-                background-color: #3e4a7e;
-                .ant-input {
-                  background-color: #3e4a7e !important;
-                  border-color: #3e4a7e !important;
-                  border-radius: 4px !important;
-                }
-              `}
-            />
-          ) : dateMode === 1 ? (
-            <WeekPicker
-              onChange={onChange}
-              placeholder="Select week"
-              css={css`
-                background-color: #3e4a7e;
-                .ant-input {
-                  background-color: #3e4a7e !important;
-                  border-color: #3e4a7e !important;
-                  border-radius: 4px !important;
-                }
-              `}
-            />
-          ) : dateMode === 2 ? (
-            <MonthPicker
-              onChange={onChange}
-              placeholder="Select month"
-              css={css`
-                background-color: #3e4a7e;
-                .ant-input {
-                  background-color: #3e4a7e !important;
-                  border-color: #3e4a7e !important;
-                  border-radius: 4px !important;
-                }
-              `}
-            />
-          ) : (
-            <MonthPicker
-              onChange={onChange}
-              placeholder="Select month"
-              css={css`
-                background-color: #3e4a7e;
-                .ant-input {
-                  background-color: #3e4a7e !important;
-                  border-color: #3e4a7e !important;
-                  border-radius: 4px !important;
-                }
-              `}
-            />
-          )}
-        </span>
+        {noreten ? (
+          <span />
+        ) : (
+          <span
+            css={css`
+              margin-left: 1rem;
+            `}
+          >
+            {dateMode === 0 ? (
+              <RangePicker
+                onChange={onChange}
+                css={css`
+                  background-color: #3e4a7e;
+                  .ant-input {
+                    background-color: #3e4a7e !important;
+                    border-color: #3e4a7e !important;
+                    border-radius: 4px !important;
+                  }
+                `}
+              />
+            ) : dateMode === 1 ? (
+              <WeekPicker
+                onChange={onChange}
+                placeholder="Select week"
+                css={css`
+                  background-color: #3e4a7e;
+                  .ant-input {
+                    background-color: #3e4a7e !important;
+                    border-color: #3e4a7e !important;
+                    border-radius: 4px !important;
+                  }
+                `}
+              />
+            ) : dateMode === 2 ? (
+              <MonthPicker
+                onChange={onChange}
+                placeholder="Select month"
+                css={css`
+                  background-color: #3e4a7e;
+                  .ant-input {
+                    background-color: #3e4a7e !important;
+                    border-color: #3e4a7e !important;
+                    border-radius: 4px !important;
+                  }
+                `}
+              />
+            ) : (
+              <MonthPicker
+                onChange={onChange}
+                placeholder="Select month"
+                css={css`
+                  background-color: #3e4a7e;
+                  .ant-input {
+                    background-color: #3e4a7e !important;
+                    border-color: #3e4a7e !important;
+                    border-radius: 4px !important;
+                  }
+                `}
+              />
+            )}
+          </span>
+        )}
       </Title>
       <Container
         row

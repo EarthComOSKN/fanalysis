@@ -18,6 +18,7 @@ import {
   DurationChart,
   ConvertionChart
 } from "../components/Chart";
+import Filter from "../components/Filter";
 
 const Col = styled.div`
   display: flex;
@@ -198,11 +199,12 @@ const Customer = () => {
       padding="1rem"
       css={css`
         width: 100%;
-        max-width: 1200px;
+        max-width: 1500px;
         margin: 0 auto;
       `}
     >
       <Title>CUSTOMER JOURNEY</Title>
+      <Filter />
       <SankyCard
         cardStyle={{
           width: "100%",
